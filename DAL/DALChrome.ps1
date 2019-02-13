@@ -29,11 +29,9 @@
 #     - OS
 #     - OS Architecture
 #     - Browser version
-# and returns the download url for the webdriver
 # @EiderMauricioAristizábalErazo
 # @DilanStevenMejiaBuitrago
 #
-
 
 #
 # Reads the browser chrome.exe file's attributes and extracts the full version number
@@ -68,12 +66,13 @@ function GetChromeVersionInMacOS()
 	if(!$data -eq "") 
 	{	
 		$chromeVersionNum = ([regex]"(\d+.\d+.\d+.\d+)").Match($data).Captures[0].value
-
-	}else 
+	}
+	else 
 	{
 		Write-Output "No se encontro la siguiente ruta: $data"
 		$chromeVersionNum = "Version Not Found"
 	}
+
 	return $chromeVersionNum
 }
 
@@ -90,16 +89,18 @@ function GetChromeVersionInLinux()
 		$data = Invoke-Expression "$chromePath --version"
 		$chromeVersionNum = ([regex]"(\d+.\d+.\d+.\d+)").Match($data).Captures[0].value
 
-	}else 
+	}
+	else 
 	{
 		Write-Output "No se encontro la siguiente ruta: $chromePath"
 		$chromeVersionNum = "Version Not Found"
 	}
+
 	return $chromeVersionNum
 }
 
 #
-# Given the full chrome browser version number, extracts the major version number
+# Given the full google chrome browser version number, extracts the major version number
 #
 function GetChromeMajorVersionSwitchFullVersionNumber([String]$fullVersionNum)
 {
@@ -124,11 +125,11 @@ function GetChromeVersionCrossPlatform()
 		$chrVersion = GetChromeVersionInWindows
 	}
 
-	if ($IsMacOS) {
+	if ($myOsName.Equals("MAC")) {
 		$chrVersion = GetChromeVersionInMacOS
 	}
 
-	if ($IsLinux) {
+	if ($myOsName.Equals("LNX")) {
 		$chrVersion = GetChromeVersionInLinux
 	}
 
@@ -136,12 +137,13 @@ function GetChromeVersionCrossPlatform()
 }
 
 #
-# Finds the CHROME download URL swtich the current platform settings
-# the download url is between the low and high browser version
+# If CHROME datarow is compatible with current environment and
+# the webdriver version is between the low and high browser version
+# then returns the chromedriver download url
 #
-function FindChromeDownloadURL($dataRow, $fullVersion)
+function GetChromeDownloadURLIfCompatible($chromeDataRow, $fullVersion)
 {
-	$rowFields = $dataRow.Split(";") 
+	$rowFields = $chromeDataRow.Split(";") 
 	$foundURL = "Chrome_$errorDriverNotFound";
 	$low = [convert]::ToInt32($rowFields[$idxBrowsVer].Split("-")[0], 10)
 	$hig = [convert]::ToInt32($rowFields[$idxBrowsVer].Split("-")[1], 10)		

@@ -29,7 +29,6 @@
 #     - OS
 #     - OS Architecture
 #     - Browser version
-# and returns the download url for the webdriver
 # @EiderMauricioAristizábalErazo
 # @DilanStevenMejiaBuitrago
 #
@@ -47,7 +46,8 @@ function GetFireFoxVersionInWindows()
 		$data = Get-ItemProperty -Path $useFireFoxPath | Format-list -Property VersionInfo | Out-String
 		$firefoxVersionNum = ([regex]"(\d+.\d+.\d+)").Match($data).Captures[0].value
 	
-	}else 
+	}
+	else 
 	{
 		Write-Output "No se encontro la siguiente ruta: $useFireFoxPath"
 		$firefoxVersionNum = "Version Not Found"
@@ -80,7 +80,7 @@ function GetFireFoxVersionInMacOS()
 }
 
 #
-# Reads the browser [Fire Fox] file's content and extracts the full version number
+# Reads the browser [FireFox] file's content and extracts the full version number
 #
 function GetFireFoxVersionInLinux()
 {
@@ -92,8 +92,8 @@ function GetFireFoxVersionInLinux()
 	{
 		$data = Invoke-Expression "$fireFoxPath --version"
 		$firefoxVersionNum = ([regex]"(\d+.\d+)").Match($data).Captures[0].value
-
-	}else 
+	}
+	else 
 	{
 		Write-Output "No se encontro la siguiente ruta: $fireFoxPath"
 		$firefoxVersionNum = "Version Not Found"
@@ -103,7 +103,8 @@ function GetFireFoxVersionInLinux()
 }
 
 
-# Given current OS, invokes the proper function to extract chrome browser full version number
+# Given current OS, invokes the proper function to extract the 
+# firefox browser full version number
 #
 function GetFireFoxVersionCrossPlatform()
 {
@@ -114,11 +115,11 @@ function GetFireFoxVersionCrossPlatform()
 		$firefoxVersion = GetFireFoxVersionInWindows
 	}
 
-	if ($IsMacOS) {
+	if ($myOsName.Equals("MAC")) {
 		$firefoxVersion = GetFireFoxVersionInMacOS
 	}
 
-	if ($IsLinux) {
+	if ($myOsName.Equals("LNX")) {
 		$firefoxVersion = GetFireFoxVersionInLinux
 	}
 
@@ -141,11 +142,13 @@ function GetFireFoxMajorVersionSwitchFullVersionNumber([String]$fullVersionNum)
 }
 
 #
-# Finds the FIREFOX download URL swtich the current platform settings
+# If FIREFOX datarow is compatible with current environment and
+# the webdriver version is between the low and high browser version
+# then returns the geckodriver download url
 #
-function FindFireFoxDownloadURL($dataRow, $fullVersion)
+function GetGeckoDownloadURLIfCompatible($firefoxDataRow, $fullVersion)
 {
-	$rowFields = $dataRow.Split(";") 
+	$rowFields = $firefoxDataRow.Split(";") 
 	$foundURL = "FireFox_$errorDriverNotFound";
 	$low = [convert]::ToInt32($rowFields[$idxBrowsVer].Split("-")[0], 10)
 	$hig = [convert]::ToInt32($rowFields[$idxBrowsVer].Split("-")[1], 10)		
@@ -154,8 +157,8 @@ function FindFireFoxDownloadURL($dataRow, $fullVersion)
 	[string]$repoArchitecture = $rowFields[$idxOSArch]
 	
 	if (([convert]::ToInt32($majorVersion, 10) -In $low .. $hig) -And 
-		($repoArchitecture.Equals($osArchitecture))
-	){
+		($repoArchitecture.Equals($osArchitecture)))
+	{
 		$env:SE_DRVR_FMT = $rowFields[$idxFormatPk]
 		$foundURL = $rowFields[$idxDrivrURL]
 	}

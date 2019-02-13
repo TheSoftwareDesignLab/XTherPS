@@ -29,7 +29,6 @@
 #     - OS
 #     - OS Architecture
 #     - Browser version
-# and returns the download url for the webdriver
 # @EiderMauricioAristizábalErazo
 # @DilanStevenMejiaBuitrago
 #
@@ -77,12 +76,12 @@ function IsValidJavaVersion([string]$installedJavaVersion, [String]$minVersion, 
 }
 
 #
-# Finds the SELENIUM STAND ALONE download URL 
-# swtich the current platform settings
+# If seStandAlone datarow is compatible with current java version
+# then returns the selenium-server-standalone-X.X.X.jar download url
 #
-function FindSeleniumStandAloneDownloadURL($dataRow, $installedJavaVersion)
+function GetSeleniumStandAloneDownloadURLIfCompatible($seStandAloneDataRow, $installedJavaVersion)
 {
-	$rowFields = $dataRow.Split(";") 
+	$rowFields = $seStandAloneDataRow.Split(";") 
 	[string]$foundURL = "Selenium_$errorDriverNotFound";
 
 	# Validate Java Version
