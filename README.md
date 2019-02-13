@@ -1,7 +1,6 @@
-# Introduction 
-XTherPS: Installs the compatible Web Drivers with the installed web browsers in a target machine. Also installs the latest version of the selenium stand alone server.
-
-Is a tool develped in PowerShell Core therefore it runs on WIndows, Mac and Linux; the supported resources are:
+# About XTherPS 
+[![N|Solid](https://github.com/TheSoftwareDesignLab/XTherPS/blob/master/Img/extension-icon.png)](http://www.greensqa.com)
+Installs the compatible Web Drivers with the installed web browsers in a target machine. Also installs the latest version of the selenium stand alone server. XTherPS is develped in PowerShell Core therefore it runs on Windows, Mac and Linux; the supported resources are:
 
 - STD-SeleniumStandAlone: Supports a compatible version of selenium stand alone with the java version installed
 
@@ -17,6 +16,14 @@ Is a tool develped in PowerShell Core therefore it runs on WIndows, Mac and Linu
 1. Download and Install Microsoft Powershell
 2. Run XTher indicating the comma separated list of resources and the installation directory
 3. For MacOS or Linux run:
-        - powsh XTherPS.ps1 -resources "STD,CHR,FIR,EDG" -installDir '/Users/eider/Selenium'
+```sh
+pwsh XTherPS.ps1 -resources "STD,CHR,FIR,EDG" -installDir '/Users/eider/Selenium'
+```
 4.	For Windows run: 
-        - ./XTherPS.ps1 -resources "STD,CHR,FIR,EDG" -installDir 'C:\greensqa\selenium'
+```sh
+powershell ./XTherPS.ps1 -resources "STD,CHR,FIR,EDG" -installDir 'C:\greensqa\selenium'
+```
+License
+----
+
+MIT
