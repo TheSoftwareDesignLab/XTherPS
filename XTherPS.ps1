@@ -48,11 +48,45 @@ function XTherDownloadScripts
 {
     $destinationDirectory=[System.IO.Path]::GetDirectoryName($PSCommandPath)
 	
-	$urlSEREsourcesDB = ""
-	$urlSEResourcesInstaller = ""
+	$urlXTherIndex = "https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/XTherPSIndex.ps1?token=AHBiN7IU_Cb0uqzJnmIJwKOVZn5-Bz8Nks5cbW5OwA%3D%3D"
 
-	#(New-Object System.Net.WebClient).DownloadFile("$urlSEREsourcesDB", "$destinationDirectory/SEREsourcesDB.ps1")
-	#(New-Object System.Net.WebClient).DownloadFile("$urlSEResourcesInstaller", "$destinationDirectory/SEResourcesInstaller.ps1")
+	if(!(Test-Path -Path "$destinationDirectory/XTherPSIndex.ps1")) {		
+		(New-Object System.Net.WebClient).DownloadFile("$urlXTherIndex", "$destinationDirectory/XTherPSIndex.ps1")
+
+		Start-Sleep -m 1000
+	}
+
+. $destinationDirectory/XTherPSIndex.ps1
+
+	foreach ($row in $XTherIndex.Split("`n")) 
+		{
+		$rowFields = $row.Split(";")
+		
+		#ignore invalid rows
+		if ($rowFields.Length -le 2) 
+		    { 
+				continue; 
+			}
+
+			$URL = $rowFields[$idxFolder].replace("/", "" )
+
+			if(!(Test-Path -Path $destinationDirectory/$URL ) -and !($URL.Equals("") )) {		
+				if($destinationDirectory.Contains("\"))
+				{
+					[System.IO.Directory]::CreateDirectory($destinationDirectory+"\"+$URL)
+					Write-Output "The output directory has been created at $destinationDirectory+"\"+$URL"
+				}else
+				{
+					[System.IO.Directory]::CreateDirectory($destinationDirectory+"/"+$URL)
+					Write-Output "The output directory has been created at $destinationDirectory+"/"+$URL"
+				}
+				
+			}
+			
+			(New-Object System.Net.WebClient).DownloadFile($rowFields[$idxFileUri], "$destinationDirectory"+$rowFields[$idxFolder]+$rowFields[$idxFileName])
+
+	
+		}
 }
 
 #
