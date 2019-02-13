@@ -24,7 +24,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Script purpose:
 #
-# Database of the URLS for the supported webdrivers
+# Database of the URLS for the supported resources (Stand alone and webdrivers)
 #
 # @EiderMauricioAristizábalErazo
 # @DilanStevenMejiaBuitrago

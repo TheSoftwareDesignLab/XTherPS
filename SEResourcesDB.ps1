@@ -24,12 +24,12 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Script purpose:
 #
-# Logic for quering the download url of the webdrivers
-# or stand alone, maintaining the compatibility between: 
+# Logic for quering the download url of the resources (webdrivers
+# or selenium stand alone) maintaining the compatibility between: 
 #     - OS
 #     - OS Architecture
 #     - Browser version
-# and returns the download url for the webdriver
+#
 # @EiderMauricioAristizábalErazo
 # @DilanStevenMejiaBuitrago
 #
@@ -63,7 +63,8 @@ function GetOsName()
 }
 
 #
-# Gets the operative system archichitecture 86 or 64
+# Gets the operative system archichitecture x86 or x64
+# returning a string which can be 64 or 86
 #
 function GetOsArchitecture()
 {
@@ -71,7 +72,7 @@ function GetOsArchitecture()
 }
 
 #
-# Get the version of the resource
+# Get the version of the given resource
 #
 function GetResourceFullVersion([string]$resourceName)
 {
@@ -127,19 +128,19 @@ function QueryResourceDownloadUrlDB([string]$resourceName)
 			($rowFields[$idxOSName].Equals($OperativeSName) -or $rowFields[$idxOSName].Equals("ALL")))
 			{ 
 				if ($resourceName.Equals("CHR")) {
-					$foundURL = FindChromeDownloadURL $row $resourceFullVersion                
+					$foundURL = GetChromeDownloadURLIfCompatible $row $resourceFullVersion                
 				}
 
 				if ($resourceName.Equals("FIR")) {
-					$foundURL = FindFireFoxDownloadURL $row $resourceFullVersion
+					$foundURL = GetGeckoDownloadURLIfCompatible $row $resourceFullVersion
 				}
 
 				if ($resourceName.Equals("EDG")) {
-					$foundURL = FindEdgeDownloadURL $row $resourceFullVersion
+					$foundURL = GetEdgeDownloadURLIfCompatible $row $resourceFullVersion
 				}
 
 				if ($resourceName.Equals("STD")) {
-					$foundURL = FindSeleniumStandAloneDownloadURL $row $resourceFullVersion
+					$foundURL = GetSeleniumStandAloneDownloadURLIfCompatible $row $resourceFullVersion
 				}
 
 				#evaluates if the url was found
@@ -163,8 +164,8 @@ function QueryResourceDownloadUrlDB([string]$resourceName)
 . $logicDirectory/DAL/DALEdge.ps1
 
 #
-# Gets de download URL for the specified $resourceName
-# taking into account current environment platform
+# Gets the download URL for the specified $resourceName
+# taking into account the current environment platform
 #
 function GetResourceDownloadURL($resourceName)
 {

@@ -29,7 +29,7 @@
 #     - OS
 #     - OS Architecture
 #     - Browser version
-# and returns the download url for the webdriver
+#
 # @EiderMauricioAristizábalErazo
 # @DilanStevenMejiaBuitrago
 #
@@ -43,12 +43,11 @@ function GetEdgeVersionInWindows()
 	$edgeVersionNum = ""
 
 	if((Test-Path -Path $useEdgePath)) 
-	{
-	
-	$data = Get-ItemProperty -Path $useEdgePath | Format-list -Property VersionInfo | Out-String
-	$edgeVersionNum = ([regex]"(\d+.\d+.\d+)").Match($data).Captures[0].value
-	
-	}else 
+	{	
+		$data = Get-ItemProperty -Path $useEdgePath | Format-list -Property VersionInfo | Out-String
+		$edgeVersionNum = ([regex]"(\d+.\d+.\d+)").Match($data).Captures[0].value	
+	}
+	else 
 	{
 		Write-Output "No se encontro la siguiente ruta: $useEdgePath"
 		$edgeVersionNum = "Version Not Found"
@@ -57,7 +56,7 @@ function GetEdgeVersionInWindows()
 	return $edgeVersionNum
 }
 
-# Given current OS, invokes the proper function to extract chrome browser full version number
+# Given current OS, invokes the proper function to extract the edge browser full version number
 #
 function GetEdgeVersionCrossPlatform()
 {
@@ -85,12 +84,15 @@ function GetEdgeMajorVersionSwitchFullVersionNumber([String]$fullVersionNum)
 	return $majorVer
 }
 
+
 #
-# Finds the Edge download URL in the data row
+# If EDGE datarow is compatible with current environment and
+# the webdriver version is between the low and high browser version
+# then returns the MicrosoftWebDriver.exe download url
 #
-function FindEdgeDownloadURL($dataRow, $fullVersion)
+function GetEdgeDownloadURLIfCompatible($edgeDataRow, $fullVersion)
 {
-	$rowFields = $dataRow.Split(";") 
+	$rowFields = $edgeDataRow.Split(";") 
 	$foundURL = "EDGE_$errorDriverNotFound";
 	$low = [convert]::ToInt32($rowFields[$idxBrowsVer].Split("-")[0], 10)
 	$hig = [convert]::ToInt32($rowFields[$idxBrowsVer].Split("-")[1], 10)		
@@ -99,8 +101,8 @@ function FindEdgeDownloadURL($dataRow, $fullVersion)
 	[string]$repoArchitecture = $rowFields[$idxOSArch]
 	
 	if (([convert]::ToInt32($majorVersion, 10) -In $low .. $hig) -And 
-		($repoArchitecture.Equals($osArchitecture))
-	){
+		($repoArchitecture.Equals($osArchitecture)))
+	{
 		$env:SE_DRVR_FMT = $rowFields[$idxFormatPk]
 		$foundURL = $rowFields[$idxDrivrURL]
 	}

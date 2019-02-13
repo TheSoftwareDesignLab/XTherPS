@@ -39,7 +39,7 @@ param([String]$myResources='STD',
 	 )
 
 #
-# Worker block to download the drivers
+# Worker block for downloading the resources (Stand alone or webdrivers)
 #
 $downloaderWorker = { param([String]$driverOutput, [String]$componentName, [String]$xTherLocation)
 
@@ -49,11 +49,10 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 . $xTherLocation/SEResourcesDB.ps1
 
 	#
-	# Checks if a url begins with the http
+	# Checks if a url begins with the "http" string
 	#
 	function IsValidURL([string]$resourceURL) 
 	{	
-
 		if ($resourceURL.Contains("http"))
 		{
 			return $true
@@ -75,7 +74,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 		try {
 			$result = GetResourceDownloadURL $resName
 			
-			#Extract the url
+			#Extracts the url which is in the format [["the url"]]
 			$extractedURL = ([regex]"(\[\[.+])").Match($result).Captures[0].value
 			$extractedURL = $extractedURL.Replace("[", "").Replace("]", "")		
 		}
@@ -85,7 +84,6 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 			Write-Output $_.Exception.ItemName
 		}
 
-		#return the URL
 		return $extractedURL
 	}
 
@@ -101,7 +99,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 		#download the resource
 		(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$driverOutput/$resourceName")
 
-		#outputs results
+		#Writes the results to the console
 		Write-Output "package [$packName] of the resource [$resourceName]`nIs downloaded to [$driverOutput/$packName]"		
 	}
 
@@ -115,12 +113,12 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 		if ($resourceUrl.Contains(".tar")) {
 			$packageName = "$driverOutput/$packAlias" + "_pack.tar.gz"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
-			Start-Sleep -m 500
+			Start-Sleep -m 800
 			Invoke-Expression "tar xf '$packageName' -C '$driverOutput/'"   
 		}else {
 			$packageName = "$driverOutput$packAlias" + "_pack.zip"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
-			Start-Sleep -m 500
+			Start-Sleep -m 800
 			Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force	
 		}
 		
@@ -157,7 +155,6 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 	}
 	
 	if ($componentName -eq "EDG") {
-
 		$myEdgeDriverURL = GetCompatibleResourceDownloadURL ("EDG")
 		$validationResult = IsValidURL($myEdgeDriverURL)
 	
@@ -175,12 +172,10 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 function installSeleniumSupportResources
 {
 	Write-Output "Installing selenium support resources in [$myDriverOutput] for [$myResources]"
-	[System.IO.Directory]::CreateDirectory("$myDriverOutput")
-
 	$xtherLocation = $pwd
 
 	if(!(Test-Path -Path $myDriverOutput)) {		
-		mkdir $myDriverOutput
+		[System.IO.Directory]::CreateDirectory("$myDriverOutput")
 		Write-Output "The output directory has been created at [$myDriverOutput]"
 	}
 
