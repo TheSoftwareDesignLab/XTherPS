@@ -1,5 +1,5 @@
 # About XTherPS 
-[![N|Solid](https://github.com/TheSoftwareDesignLab/XTherPS/blob/master/Img/XTherPSSmall.png.png)](http://www.greensqa.com)
+[![N|Solid](https://github.com/TheSoftwareDesignLab/XTherPS/blob/master/Img/XTherPSSmall.png)](http://www.greensqa.com)
 Installs the compatible Web Drivers with the installed web browsers in a target machine. Also installs the latest version of the selenium stand alone server. XTherPS is develped in PowerShell Core therefore it runs on Windows, Mac and Linux; the supported resources are:
 
 - STD-SeleniumStandAlone: Supports a compatible version of selenium stand alone with the java version installed
