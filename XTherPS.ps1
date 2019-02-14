@@ -24,15 +24,10 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Script purpose:
 #
-#  Installs the compatible Web Drivers with the installed web browsers in a target
-#  machine. Also installs the latest version of the selenium stand alone server.
-#
-#  Examples:
-#	1) Invoking example for installing Selenium stand alone and Chrome driver:
-#	pwsh ./greensqa_xther/XTherPS.ps1 -resources 'STD,CHR' -installDir '/Users/eider/Documents/Selenium'
-#
-#	2) Invoking example for installing all XTher's suported resources:
-# 	pwsh XTherPS.ps1 -resources '*' -installDir '/Users/eider/Documents/Selenium'
+# Installs the Web Drivers compatible with the installed web browsers into the
+# running machine. Also installs the latest version of the selenium stand alone 
+# server. XTherPS is develped in PowerShell Core therefore it runs on Windows, 
+# Mac and Linux.
 #
 # @EiderMauricioAristizábalErazo
 # @DilanStevenMejiaBuitrago
@@ -42,12 +37,12 @@ param([String]$resources='STD',
 	 )
 
 #
-# Fetch required scripts of XTher
+# Fetch required scripts of XTherPS
 #
-function XTherDownloadScripts
+function XTherDownloadLogicScripts
 {
-    $destinationDirectory=[System.IO.Path]::GetDirectoryName($PSCommandPath)
-	
+	$stopWatch = [system.diagnostics.stopwatch]::startNew()
+    $destinationDirectory=[System.IO.Path]::GetDirectoryName($PSCommandPath)	
 	$urlXTherIndex = "https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/XTherPSIndex.ps1?token=AHBiN7IU_Cb0uqzJnmIJwKOVZn5-Bz8Nks5cbW5OwA%3D%3D"
 
 	if(!(Test-Path -Path "$destinationDirectory/XTherPSIndex.ps1")) {		
@@ -59,40 +54,39 @@ function XTherDownloadScripts
 . $destinationDirectory/XTherPSIndex.ps1
 
 	foreach ($row in $XTherIndex.Split("`n")) 
-		{
+	{
 		$rowFields = $row.Split(";")
 		
 		#ignore invalid rows
 		if ($rowFields.Length -le 2) 
-		    { 
-				continue; 
-			}
-
-			$URL = $rowFields[$idxFolder].replace("/", "" )
-
-			if(!(Test-Path -Path $destinationDirectory/$URL ) -and !($URL.Equals("") )) {		
-				if($destinationDirectory.Contains("\"))
-				{
-					[System.IO.Directory]::CreateDirectory($destinationDirectory+"\"+$URL)
-					Write-Output "The output directory has been created at $destinationDirectory+"\"+$URL"
-				}else
-				{
-					[System.IO.Directory]::CreateDirectory($destinationDirectory+"/"+$URL)
-					Write-Output "The output directory has been created at $destinationDirectory+"/"+$URL"
-				}
-				
-			}
-			
-			(New-Object System.Net.WebClient).DownloadFile($rowFields[$idxFileUri], "$destinationDirectory"+$rowFields[$idxFolder]+$rowFields[$idxFileName])
-
-	
+		{ 
+			continue; 
 		}
+
+		$URL = $rowFields[$idxFolder].replace("/", "" )
+
+		if(!(Test-Path -Path $destinationDirectory/$URL ) -and !($URL.Equals("") )) {		
+			if($destinationDirectory.Contains("\"))
+			{
+				[System.IO.Directory]::CreateDirectory($destinationDirectory+"\"+$URL)
+			}
+			else
+			{
+				[System.IO.Directory]::CreateDirectory($destinationDirectory+"/"+$URL)
+			}				
+		}
+		
+		(New-Object System.Net.WebClient).DownloadFile($rowFields[$idxFileUri], "$destinationDirectory"+$rowFields[$idxFolder]+$rowFields[$idxFileName])
+	}
+
+	$runDuration = $stopWatch.Elapsed.TotalSeconds
+	Write-Output "XTherPS downloaded the requiered logic in [$runDuration] seconds"
 }
 
 #
-# Executes the downloader logic
+# Executes the compatibility logic for download the required resources
 #
-function XTherResourcesRunner ($myInstallDir, $myResources)
+function XTherInstallCompatibleResources ($myInstallDir, $myResources)
 {
 	#Detect which resources wants to install
 	if ($myResources.Equals("*"))
@@ -100,11 +94,10 @@ function XTherResourcesRunner ($myInstallDir, $myResources)
 		$myResources = "STD,CHR,FIR,EDG"
 	}
 
-	echo "Params resurces=[$myResources]"
+	Write-Output "Installing the resources [$myResources]"
 
 	#Invoke SEResourcesInstaller script
 	$installerCommand = "./SEResourcesInstaller.ps1 -myDriverOutput '$myInstallDir' -myResources '$myResources'"
-	echo "the installer command will be [$installerCommand]"
 	$ScriptBlock = [ScriptBlock]::Create($installerCommand)	
 	Invoke-Command -ScriptBlock $ScriptBlock
 }
@@ -122,8 +115,8 @@ function XTherRunAll ($myInstallDir, $myResources)
 	$currentPath = $pwd
 
 	try {
-		XTherDownloadScripts
-		XTherResourcesRunner $myInstallDir $myResources	
+		XTherDownloadLogicScripts
+		XTherInstallCompatibleResources $myInstallDir $myResources	
 	}
 	Catch
 	{
