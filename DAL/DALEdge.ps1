@@ -45,7 +45,8 @@ function GetEdgeVersionInWindows()
 	if((Test-Path -Path $useEdgePath)) 
 	{	
 		$data = Get-ItemProperty -Path $useEdgePath | Format-list -Property VersionInfo | Out-String
-		$edgeVersionNum = ([regex]"(\d+.\d+.\d+)").Match($data).Captures[0].value	
+		$edgeVersionNum = ([regex]"(\d+.\d+.\d+)").Match($data).Captures[0].Value
+		$edgeVersionNum = $edgeVersionNum.Split(".")[2].Substring(0, 2)
 	}
 	else 
 	{
