@@ -131,7 +131,7 @@ function XTherRunAll ($myInstallDir, $myResources)
 	{
 		Set-Location $currentPath
 		$runDuration = $stopWatch.Elapsed.TotalSeconds
-		Write-Output "XTherPS executed in [$runDuration] seconds"
+		Write-Output "`nXTherPS executed in [$runDuration] seconds"
 	}
 }
 
