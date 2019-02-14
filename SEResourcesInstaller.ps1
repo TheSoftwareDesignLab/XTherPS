@@ -123,7 +123,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 		}
 		
 		Start-Sleep -m 500
-		Write-Output "package [$packageName] downloaded and expanded"
+		Write-Output " the package [$packageName] of the resource [$resourceUrl]`n is downloaded and expanded"
 		Remove-Item $packageName
 	}
 
