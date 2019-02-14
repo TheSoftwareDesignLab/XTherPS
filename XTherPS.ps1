@@ -86,7 +86,7 @@ function XTherDownloadLogicScripts
 #
 # Executes the compatibility logic for download the required resources
 #
-function XTherInstallCompatibleResources ($myInstallDir, $myResources)
+function XTherInstallCompatibleResources ($myInstallDir, $myResources, $currentPath)
 {
 	#Detect which resources wants to install
 	if ($myResources.Equals("*"))
@@ -95,7 +95,7 @@ function XTherInstallCompatibleResources ($myInstallDir, $myResources)
 	}
 
 	#Invoke SEResourcesInstaller script
-	$installerCommand = "./SEResourcesInstaller.ps1 -myDriverOutput '$myInstallDir' -myResources '$myResources'"
+	$installerCommand = "$currentPath/SEResourcesInstaller.ps1 -myDriverOutput '$myInstallDir' -myResources '$myResources'"
 	$ScriptBlock = [ScriptBlock]::Create($installerCommand)	
 	Invoke-Command -ScriptBlock $ScriptBlock
 }
@@ -120,7 +120,7 @@ function XTherRunAll ($myInstallDir, $myResources)
 
 	try {
 		XTherDownloadLogicScripts
-		XTherInstallCompatibleResources $myInstallDir $myResources	
+		XTherInstallCompatibleResources $myInstallDir $myResources $currentPath
 	}
 	Catch
 	{
