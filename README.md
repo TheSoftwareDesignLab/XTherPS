@@ -3,7 +3,7 @@
 <br>
 Installs the Web Drivers compatible with the installed web browsers into the running machine. Also installs the latest version of the selenium stand alone server. XTherPS is develped in PowerShell Core therefore it runs on Windows, Mac and Linux; the supported resources are:
 
-- STD-SeleniumStandAlone: Supports a compatible version of selenium stand alone with the java version of the running machine
+- STD-SeleniumStandAlone: Supports Selenium Stand Alone Server compatible with the java version of the running machine
 
 - CHR-Chromedriver: Google Chrome browser supported from version 66
 
