@@ -48,7 +48,7 @@ function GetChromeVersionInWindows()
 
 	}else 
 	{
-		Write-Output "No se encontro la siguiente ruta: $useChromePath"
+		Write-Output "Path not found: $useChromePath"
 		$chromeVersionNum = "Version Not Found"
 	}
 	
@@ -73,7 +73,7 @@ function GetChromeVersionInMacOS()
 	}
 	else 
 	{
-		Write-Output "No se encontro la siguiente ruta: $useChromePath"
+		Write-Output "Path not found: $useChromePath"
 		$chromeVersionNum = "Version Not Found"
 	}
 
@@ -95,7 +95,7 @@ function GetChromeVersionInLinux()
 	}
 	else 
 	{
-		Write-Output "No se encontro la siguiente ruta: $chromePath"
+		Write-Output "Path not found: $chromePath"
 		$chromeVersionNum = "Version Not Found"
 	}
 

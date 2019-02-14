@@ -48,7 +48,7 @@ function GetFireFoxVersionInWindows()
 	}
 	else 
 	{
-		Write-Output "No se encontro la siguiente ruta: $useFireFoxPath"
+		Write-Output "Path not found: $useFireFoxPath"
 		$firefoxVersionNum = "Version Not Found"
 	}
 
@@ -73,7 +73,7 @@ function GetFireFoxVersionInMacOS()
 		}
 	}
 	else {
-		Write-Output "No se encontro la siguiente ruta: $data"
+		Write-Output "Path not found: $data"
 		$firefoxVersionNumb = "Version Not Found"
 	}
 
@@ -96,7 +96,7 @@ function GetFireFoxVersionInLinux()
 	}
 	else 
 	{
-		Write-Output "No se encontro la siguiente ruta: $fireFoxPath"
+		Write-Output "Path not found: $fireFoxPath"
 		$firefoxVersionNum = "Version Not Found"
 	}
 	
