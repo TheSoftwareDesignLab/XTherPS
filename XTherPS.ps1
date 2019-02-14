@@ -95,7 +95,7 @@ function XTherInstallCompatibleResources ($myInstallDir, $myResources, $currentP
 	}
 
 	#Invoke SEResourcesInstaller script
-	$installerCommand = "$currentPath/SEResourcesInstaller.ps1 -myDriverOutput '$myInstallDir' -myResources '$myResources'"
+	$installerCommand = "./SEResourcesInstaller.ps1 -myDriverOutput '$myInstallDir' -myResources '$myResources'"
 	$ScriptBlock = [ScriptBlock]::Create($installerCommand)	
 	Invoke-Command -ScriptBlock $ScriptBlock
 }
