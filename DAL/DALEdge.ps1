@@ -35,26 +35,39 @@
 #
 
 #
-# Reads the browser edge.exe file's attributes and extracts the full version number
+# Find the MicrosoftEdge.exe application path
+#
+function FindEdgeApplicationPath()
+{	
+	$dirInfo = Get-ChildItem "C:\Windows\SystemApps" | Where-Object {$_.PSIsContainer -eq $true -and $_.Name -Like "Microsoft.MicrosoftEdge_*"}
+	[string]$edgePath = $dirInfo.FullName + "\MicrosoftEdge.exe"
+
+	return $edgePath
+}
+
+#
+# Reads the browser edge.exe file's attributes, extracts the full version number
+# and interpretes it to the 'Microsoft EdgeHTML' version number
 #
 function GetEdgeVersionInWindows()
 {
-	$useEdgePath = "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe"
-	$edgeVersionNum = ""
+	$useEdgePath = FindEdgeApplicationPath
+	$htmlVersion = ""
 
 	if((Test-Path -Path $useEdgePath)) 
-	{	
+	{
 		$data = Get-ItemProperty -Path $useEdgePath | Format-list -Property VersionInfo | Out-String
-		$edgeVersionNum = ([regex]"(\d+.\d+.\d+)").Match($data).Captures[0].Value
-		$edgeVersionNum = $edgeVersionNum.Split(".")[2].Substring(0, 2)
+		$htmlVersion = ([regex]"(\d+.\d+.\d+.\d+)").Match($data).Captures[0].Value
+		$versionNumParts = $htmlVersion.Split(".")
+		$htmlVersion = $versionNumParts[2].Substring(0, 2) + "." + $versionNumParts[2] +"." + $versionNumParts[3]
 	}
 	else 
 	{
-		Write-Output "No se encontro la siguiente ruta: $useEdgePath"
-		$edgeVersionNum = "Version Not Found"
+		Write-Output "Path not found: [$useEdgePath] or the HTMLVersion pattern has changed"
+		$htmlVersion = "Version Not Found"
 	}
 
-	return $edgeVersionNum
+	return $htmlVersion
 }
 
 # Given current OS, invokes the proper function to extract the edge browser full version number

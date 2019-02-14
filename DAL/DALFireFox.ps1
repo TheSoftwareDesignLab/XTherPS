@@ -45,7 +45,6 @@ function GetFireFoxVersionInWindows()
 	{
 		$data = Get-ItemProperty -Path $useFireFoxPath | Format-list -Property VersionInfo | Out-String
 		$firefoxVersionNum = ([regex]"(\d+.\d+.\d+)").Match($data).Captures[0].value
-	
 	}
 	else 
 	{
@@ -61,17 +60,19 @@ function GetFireFoxVersionInWindows()
 #
 function GetFireFoxVersionInMacOS()
 {
-
+	$useFireFoxPath = "/Applications/Firefox.app/Contents/MacOS/Firefox"
 	$firefoxVersionNumb =""
-	$data = cat "/Applications/Firefox.app/Contents/MacOS/Firefox"
 
-	if(!$data -eq "") 
+	if((Test-Path -Path $useFireFoxPath)) 
 	{	
-		$firefoxVersionNumb = ([regex]"version=(\d+.\d)").Match($data).Captures[0].value
-		$firefoxVersionNumb = [string]$firefoxVersionNumb.Split("=")[1]
+		$data = cat $useFireFoxPath
 
-	}else 
-	{
+		if(!$data -eq "") {	
+			$firefoxVersionNumb = ([regex]"version=(\d+.\d)").Match($data).Captures[0].value
+			$firefoxVersionNumb = [string]$firefoxVersionNumb.Split("=")[1]
+		}
+	}
+	else {
 		Write-Output "No se encontro la siguiente ruta: $data"
 		$firefoxVersionNumb = "Version Not Found"
 	}

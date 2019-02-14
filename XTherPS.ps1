@@ -94,12 +94,20 @@ function XTherInstallCompatibleResources ($myInstallDir, $myResources)
 		$myResources = "STD,CHR,FIR,EDG"
 	}
 
-	Write-Output "Installing the resources [$myResources]"
-
 	#Invoke SEResourcesInstaller script
 	$installerCommand = "./SEResourcesInstaller.ps1 -myDriverOutput '$myInstallDir' -myResources '$myResources'"
 	$ScriptBlock = [ScriptBlock]::Create($installerCommand)	
 	Invoke-Command -ScriptBlock $ScriptBlock
+}
+
+function PrintCorporateBrand($myInstallDir, $myResources)
+{
+	$t = $host.ui.RawUI.ForegroundColor
+	$host.ui.RawUI.ForegroundColor = "Green"
+	Write-Output "#################################################################################################################"
+	Write-Output "# GreenSQA XTherPS by TIA Team! is installing the resources [$myResources] in [$myInstallDir]                      "
+	Write-Output "#################################################################################################################"
+	$host.ui.RawUI.ForegroundColor = $t
 }
 
 #
@@ -107,10 +115,6 @@ function XTherInstallCompatibleResources ($myInstallDir, $myResources)
 #
 function XTherRunAll ($myInstallDir, $myResources)
 {
-	Write-Output "#################################################################################################################"
-	Write-Output "# GreenSQA XTher by TIA Team! is installing the resources [$myResources] in [$myInstallDir]                      "
-	Write-Output "#################################################################################################################"
-
 	$stopWatch = [system.diagnostics.stopwatch]::startNew()
 	$currentPath = $pwd
 
@@ -132,4 +136,5 @@ function XTherRunAll ($myInstallDir, $myResources)
 }
 
 # Main Entrypoint
+PrintCorporateBrand $installDir $resources
 XTherRunAll $installDir $resources

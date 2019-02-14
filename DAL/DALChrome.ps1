@@ -61,15 +61,19 @@ function GetChromeVersionInWindows()
 function GetChromeVersionInMacOS()
 {	
 	$chromeVersionNum =""
-	$data = cat "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+	$useChromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+	
+	if((Test-Path -Path $useChromePath)) 
+	{
+		$data = cat $useChromePath
 
-	if(!$data -eq "") 
-	{	
-		$chromeVersionNum = ([regex]"(\d+.\d+.\d+.\d+)").Match($data).Captures[0].value
+		if(!$data -eq "") {	
+			$chromeVersionNum = ([regex]"(\d+.\d+.\d+.\d+)").Match($data).Captures[0].value
+		}
 	}
 	else 
 	{
-		Write-Output "No se encontro la siguiente ruta: $data"
+		Write-Output "No se encontro la siguiente ruta: $useChromePath"
 		$chromeVersionNum = "Version Not Found"
 	}
 
@@ -88,7 +92,6 @@ function GetChromeVersionInLinux()
 	{
 		$data = Invoke-Expression "$chromePath --version"
 		$chromeVersionNum = ([regex]"(\d+.\d+.\d+.\d+)").Match($data).Captures[0].value
-
 	}
 	else 
 	{

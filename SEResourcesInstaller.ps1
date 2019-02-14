@@ -171,7 +171,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 #
 function installSeleniumSupportResources
 {
-	Write-Output "Installing selenium support resources in [$myDriverOutput] for [$myResources]"
+	Write-Output "Installing the selenium support resources [$myResources] in [$myDriverOutput]"
 	$xtherLocation = $pwd
 
 	if(!(Test-Path -Path $myDriverOutput)) {		
@@ -204,5 +204,4 @@ function installSeleniumSupportResources
 }
 
 # Main Entrypoint
-Write-Output "Script running from [$pwd]"
 installSeleniumSupportResources
