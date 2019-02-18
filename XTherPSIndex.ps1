@@ -37,12 +37,12 @@ $idxFileUri   = 2
 
 
 $XTherIndex = @"
-DALChrome.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALChrome.ps1?token=AHBiNw6nYI598XzmeSb3ugN6QSw535BSks5cbWqNwA%3D%3D
-DALEdge.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALEdge.ps1?token=AHBiN6-uAM-mQt5hsIE3ygMTX8rJY6kmks5cbWx-wA%3D%3D
-DALFireFox.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALFireFox.ps1?token=AHBiN6sq80o7LM4Sb4verzpjSbcZBiq6ks5cbWydwA%3D%3D
-DALStandAlone.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALStandAlone.ps1?token=AHBiNzYYtQHiQA1WCRMOr2uYJfU8L9qmks5cbWy2wA%3D%3D
-DALUriDB.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALUriDB.ps1?token=AHBiN13k0ci91NRBflQwjXYPyAt_Kg3kks5cbWzPwA%3D%3D
-SEResourcesDB.ps1;/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/SEResourcesDB.ps1?token=AHBiN74oE2OFe1VYz5iXXkvFWETMhhmNks5cbW0iwA%3D%3D
-SEResourcesInstaller.ps1;/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/SEResourcesInstaller.ps1?token=AHBiN4IO_4Ev0R8uL4XY5sxaRN_q5Ceqks5cbW0ywA%3D%3D
+DALChrome.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALChrome.ps1
+DALEdge.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALEdge.ps1
+DALFireFox.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALFireFox.ps1
+DALStandAlone.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALStandAlone.ps1
+DALUriDB.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALUriDB.ps1
+SEResourcesDB.ps1;/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/SEResourcesDB.ps1
+SEResourcesInstaller.ps1;/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/SEResourcesInstaller.ps1
 
 "@
