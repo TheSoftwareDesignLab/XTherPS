@@ -21,12 +21,12 @@ Is a hassle for development or testing teams to manually update their packaged a
 2. Download and run [XTherPS.ps1](https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/XTherPS.ps1) indicating the comma separated list of resources and the installation directory
 3. For MacOS or Linux run:
 ```sh
-#STD = Selenium Stand-alone; CHR = Google-Chrome; FIR = Firefox; EDG = Edge
+#Note: STD = Selenium Stand-alone; CHR = Google-Chrome; FIR = Firefox; EDG = Edge
 pwsh XTherPS.ps1 -resources "STD,CHR,FIR,EDG" -installDir '/Users/eider/Selenium'
 ```
-4.	For Windows run: 
+4.	For Windows right click the downloaded file XTherPS.ps1 and unlock security and then run:
 ```sh
-#STD = Selenium Stand-alone; CHR = Google-Chrome; FIR = Firefox; EDG = Edge
+#Note: STD = Selenium Stand-alone; CHR = Google-Chrome; FIR = Firefox; EDG = Edge
 powershell ./XTherPS.ps1 -resources "STD,CHR,FIR,EDG" -installDir 'C:\greensqa\selenium'
 ```
 
