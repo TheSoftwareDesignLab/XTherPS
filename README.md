@@ -3,13 +3,13 @@
 <br>
 XTherPS is a cross-platform utility created by [GreenSQA](https://greensqa.com/en) for avoiding compatibility issues among selenium standalone server, web drivers and browsers. It is coded in PowerShell Core; therefore, it runs on Windows, Mac, and Linux. Supported resources are:
 
-- STD-SeleniumStandAlone: Supports the Selenium Stand Alone Server compatible with the java version of the running machine
+- Selenium Stand-Alone Server(STD): Supports the Selenium Stand Alone Server compatible with the java version of the running machine
 
-- CHR-Chromedriver: Google Chrome browser supported from version 66
+- Chrome Driver(CHR): Google Chrome browser supported from version 66
 
-- FIR-Geckodriver: Firefox browser supported from version 53 
+- Gecko Driver(FIR): Firefox browser supported from version 53 
 
-- EDG-EdgeWebdriver: Microsoft Edge browser supported from version 12
+- Edge Web Driver(EDG): Microsoft Edge browser supported from version 12
 
 # Motivation
 Compatibility issues between web drivers, browsers and Selenium stand-alone frequently appear when new versions of either of them are released. Updating the browser typically breaks CI and CD pipelines requiring human intervention to also update selenium resources in the running machine to those with the correct compatibility.
