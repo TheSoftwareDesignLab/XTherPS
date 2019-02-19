@@ -1,3 +1,6 @@
+[![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=125&branchName=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # About XTherPS 
 [![N|Solid](https://github.com/TheSoftwareDesignLab/XTherPS/blob/master/Img/XTherPSSmall.png)](http://www.greensqa.com)
 <br>
