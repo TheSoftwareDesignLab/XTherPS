@@ -22,7 +22,7 @@ Is a hassle for development or testing teams to manually update their packaged a
 # Getting Started
 
 1. Download and Install Microsoft Powershell (minimum version powershell 5.1 or powershell core 6.1)
-2. Download and run [XTherPS.ps1](https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/XTherPS.ps1) indicating the installation directory and the comma separated list of resources (STD = Selenium Stand-alone, CHR is Google-Chrome, FIR is Firefox, EDG is Edge)
+2. Download and run [XTherPS.ps1](https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/XTherPS.ps1) indicating the installation directory and the comma separated list of resources (STD is Selenium Stand-alone, CHR is Google-Chrome, FIR is Firefox, EDG is Edge)
 3. For MacOS or Linux run:
 ```sh
 pwsh XTherPS.ps1 -resources "STD,CHR,FIR,EDG" -installDir '/Users/eider/Selenium'
