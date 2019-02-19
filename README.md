@@ -1,5 +1,3 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 | Windows  | Linux  | MacOS  |
 |---|---|---|
 | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Windows?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=129&branchName=master)  | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Linux?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=127&branchName=master)  | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-MacOS?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=128&branchName=master)  |
