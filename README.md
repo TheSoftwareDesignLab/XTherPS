@@ -1,12 +1,15 @@
-[![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=125&branchName=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+| Windows  | Linux  | MacOS  |
+|---|---|---|
+| [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Windows?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=129&branchName=master)  | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Linux?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=127&branchName=master)  | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-MacOS?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=128&branchName=master)  |
 
 # About XTherPS 
 [![N|Solid](https://github.com/TheSoftwareDesignLab/XTherPS/blob/master/Img/XTherPSSmall.png)](http://www.greensqa.com)
 <br>
 XTherPS is a cross-platform utility created by [GreenSQA](https://greensqa.com/en) for avoiding compatibility issues among selenium standalone server, web drivers and browsers. It is coded in PowerShell Core; therefore, it runs on Windows, Mac, and Linux. Supported resources are:
 
-- Selenium Stand-Alone Server(STD): Supports the Selenium Stand Alone Server compatible with the java version of the running machine
+- Selenium Stand-Alone Server (STD): Supports the Selenium Stand Alone Server compatible with the java version of the running machine
 
 - Chrome Driver (CHR): Google Chrome browser supported from version 66
 
@@ -21,15 +24,13 @@ Is a hassle for development or testing teams to manually update their packaged a
 # Getting Started
 
 1. Download and Install Microsoft Powershell (minimum version powershell 5.1 or powershell core 6.1)
-2. Download and run [XTherPS.ps1](https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/XTherPS.ps1) indicating the comma separated list of resources and the installation directory
+2. Download and run [XTherPS.ps1](https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/XTherPS.ps1) indicating the installation directory and the comma separated list of resources (STD = Selenium Stand-alone, CHR is Google-Chrome, FIR is Firefox, EDG is Edge)
 3. For MacOS or Linux run:
 ```sh
-#Note: STD = Selenium Stand-alone; CHR = Google-Chrome; FIR = Firefox; EDG = Edge
 pwsh XTherPS.ps1 -resources "STD,CHR,FIR,EDG" -installDir '/Users/eider/Selenium'
 ```
 4.	For Windows right click the downloaded file XTherPS.ps1 and unlock security and then run:
 ```sh
-#Note: STD = Selenium Stand-alone; CHR = Google-Chrome; FIR = Firefox; EDG = Edge
 powershell ./XTherPS.ps1 -resources "STD,CHR,FIR,EDG" -installDir 'C:\greensqa\selenium'
 ```
 
