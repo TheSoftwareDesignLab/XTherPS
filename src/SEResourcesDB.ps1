@@ -157,11 +157,11 @@ function QueryResourceDownloadUrlDB([string]$resourceName)
 }
 
 # Import external functions
-. $logicDirectory/DAL/DALUriDB.ps1
-. $logicDirectory/DAL/DALStandAlone.ps1
-. $logicDirectory/DAL/DALChrome.ps1
-. $logicDirectory/DAL/DALFireFox.ps1
-. $logicDirectory/DAL/DALEdge.ps1
+. $logicDirectory/dal/DALUriDB.ps1
+. $logicDirectory/dal/DALStandAlone.ps1
+. $logicDirectory/dal/DALChrome.ps1
+. $logicDirectory/dal/DALFireFox.ps1
+. $logicDirectory/dal/DALEdge.ps1
 
 #
 # Gets the download URL for the specified $resourceName

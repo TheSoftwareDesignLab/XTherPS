@@ -3,7 +3,7 @@
 | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Windows?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=129&branchName=master)  | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Linux?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=127&branchName=master)  | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-MacOS?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=128&branchName=master)  |
 
 # About XTherPS 
-[![N|Solid](https://github.com/TheSoftwareDesignLab/XTherPS/blob/master/Img/XTherPSSmall.png)](http://www.greensqa.com)
+[![N|Solid](https://github.com/TheSoftwareDesignLab/XTherPS/blob/master/img/XTherPSSmall.png)](http://www.greensqa.com)
 <br>
 XTherPS is a cross-platform utility created by [GreenSQA](https://greensqa.com/en) for avoiding compatibility issues among selenium standalone server, web drivers and browsers. It is coded in PowerShell Core; therefore, it runs on Windows, Mac, and Linux. Supported resources are:
 

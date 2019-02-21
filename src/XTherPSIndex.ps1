@@ -37,12 +37,11 @@ $idxFileUri   = 2
 
 
 $XTherIndex = @"
-DALChrome.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALChrome.ps1
-DALEdge.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALEdge.ps1
-DALFireFox.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALFireFox.ps1
-DALStandAlone.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALStandAlone.ps1
-DALUriDB.ps1;/DAL/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/DAL/DALUriDB.ps1
+DALChrome.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/dal/DALChrome.ps1
+DALEdge.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/dal/DALEdge.ps1
+DALFireFox.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/dal/DALFireFox.ps1
+DALStandAlone.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/dal/DALStandAlone.ps1
+DALUriDB.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/dal/DALUriDB.ps1
 SEResourcesDB.ps1;/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/SEResourcesDB.ps1
 SEResourcesInstaller.ps1;/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/SEResourcesInstaller.ps1
-
 "@
