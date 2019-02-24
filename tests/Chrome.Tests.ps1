@@ -29,14 +29,11 @@
 # @EiderMauricioAristizábalErazo
 #
 
-# Loads test util libraries
-. ./tests/UrlUtils.ps1
-
 # Loads the code under test
 . ./src/SEResourcesDB.ps1
 
-
- Describe 'GetResourceDownloadURL' {
+# Tests logic
+Describe 'GetResourceDownloadURL' {
 
     $chromeDriverResource = "CHR"
 
