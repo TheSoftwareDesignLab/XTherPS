@@ -33,7 +33,7 @@
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 Write-Output "Current directory is $currentDirectory"
 
-. $currentDirectory/src/SEResourcesDB.ps1
+. $currentDirectory/../src/SEResourcesDB.ps1
 
 # Tests logic
 Describe 'GetResourceDownloadURL' {
