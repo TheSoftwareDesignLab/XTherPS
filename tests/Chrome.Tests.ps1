@@ -30,7 +30,7 @@
 #
 
 # Loads the code under test
-. ./src/SEResourcesDB.ps1
+. ../src/SEResourcesDB.ps1
 
 # Tests logic
 Describe 'GetResourceDownloadURL' {
