@@ -24,7 +24,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Script purpose:
 #
-# Testing the chrome webdriver
+# Testing the firefox webdriver
 #
 # @EiderMauricioAristizábalErazo
 #
@@ -36,15 +36,15 @@ $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 # Tests logic
 Describe 'GetResourceDownloadURL' {
 
-    $chromeDriverResource = "CHR"
+    $firefoxDriverResource = "FIR"
 
-    It 'should return chrome driver valid URL for browser 72' {
+    It 'should return firefox driver valid URL for browser 64' {
         #Arrange
-        $expectedDriverUrlPart = "*2.46*"
+        $expectedDriverUrlPart = "*0.24*"
 
         #act executing logic
-        Mock 'GetResourceFullVersion' -MockWith { "72.0.3626.109" }
-        $downloadURL = GetResourceDownloadURL -resourceName $chromeDriverResource -maskResponse $False
+        Mock 'GetResourceFullVersion' -MockWith { "64.0.2" }
+        $downloadURL = GetResourceDownloadURL -resourceName $firefoxDriverResource -maskResponse $False
 
         #assert that the url points to the proper resource
         $downloadURL | Should -BeLike $expectedDriverUrlPart

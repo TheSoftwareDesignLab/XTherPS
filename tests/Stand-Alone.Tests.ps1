@@ -24,7 +24,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Script purpose:
 #
-# Testing the chrome webdriver
+# Testing the stand-alone webdriver
 #
 # @EiderMauricioAristizábalErazo
 #
@@ -32,22 +32,25 @@
 # Loads the code under test
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 . $currentDirectory/../src/SEResourcesDB.ps1
+. $currentDirectory/UrlUtils.ps1
 
 # Tests logic
 Describe 'GetResourceDownloadURL' {
 
-    $chromeDriverResource = "CHR"
+    $STDResource = "STD"
 
-    It 'should return chrome driver valid URL for browser 72' {
-        #Arrange
-        $expectedDriverUrlPart = "*2.46*"
+    It 'should return stand-alone driver valid URL for browser ' {     
+        #arrange
+        $expectedStandAloneUrlPart = "*3.141*"
 
         #act executing logic
-        Mock 'GetResourceFullVersion' -MockWith { "72.0.3626.109" }
-        $downloadURL = GetResourceDownloadURL -resourceName $chromeDriverResource -maskResponse $False
+        Mock 'GetInstalledJavaVersion' -MockWith { "1.8" }
+        $downloadURL = GetResourceDownloadURL -resourceName $STDResource -maskResponse $False
+        $actualUrlExistance = IsThisUrlOkay -urlToTest $downloadURL
 
-        #assert that the url points to the proper resource
-        $downloadURL | Should -BeLike $expectedDriverUrlPart
+        #assert that the url is valid and points to the proper resource
+        $actualUrlExistance | Should -BeTrue
+        $downloadURL | Should -BeLike $expectedStandAloneUrlPart
     }
 
 }

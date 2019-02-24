@@ -24,7 +24,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Script purpose:
 #
-# Testing the chrome webdriver
+# Testing the edge webdriver
 #
 # @EiderMauricioAristizábalErazo
 #
@@ -36,15 +36,15 @@ $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 # Tests logic
 Describe 'GetResourceDownloadURL' {
 
-    $chromeDriverResource = "CHR"
+    $edgeDriverResource = "EDG"
 
-    It 'should return chrome driver valid URL for browser 72' {
+    It 'should return edge driver valid URL for browser 12' {
         #Arrange
-        $expectedDriverUrlPart = "*2.46*"
+        $expectedDriverUrlPart = "*8D0D08CF-790D-4586-B726-C6469A9ED49C*"
 
         #act executing logic
-        Mock 'GetResourceFullVersion' -MockWith { "72.0.3626.109" }
-        $downloadURL = GetResourceDownloadURL -resourceName $chromeDriverResource -maskResponse $False
+        Mock 'GetResourceFullVersion' -MockWith { "12" }
+        $downloadURL = GetResourceDownloadURL -resourceName $edgeDriverResource -maskResponse $False
 
         #assert that the url points to the proper resource
         $downloadURL | Should -BeLike $expectedDriverUrlPart
