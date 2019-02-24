@@ -31,6 +31,7 @@
 
 # Loads the code under test
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
+
 . $currentDirectory/../src/SEResourcesDB.ps1
 
 # Tests logic
