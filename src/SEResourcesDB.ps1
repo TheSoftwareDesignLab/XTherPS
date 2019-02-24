@@ -108,7 +108,7 @@ function GetResourceFullVersion([string]$resourceName)
 # Finds into the DB the download URL swtich the current platform 
 # settings and the specified $resourceName
 #
-function QueryResourceDownloadUrlDB([string]$resourceName)
+function QueryResourceDownloadUrlDB([string]$resourceName, [bool]$maskResponse = $True)
 {
 	[string]$foundURL = "None of our stored URLS were valid for supporting the current environment and platform"
 	[string]$resourceFullVersion = GetResourceFullVersion $resourceName
@@ -152,8 +152,12 @@ function QueryResourceDownloadUrlDB([string]$resourceName)
 		}
 	}
 
-	#Clear-Host
-	return "[[$foundURL]]"
+	if ($maskResponse -eq $True)
+	{
+		return "[[$foundURL]]"
+	}else {
+		return $foundURL
+	}
 }
 
 # Import external functions
@@ -167,9 +171,9 @@ function QueryResourceDownloadUrlDB([string]$resourceName)
 # Gets the download URL for the specified $resourceName
 # taking into account the current environment platform
 #
-function GetResourceDownloadURL($resourceName)
+function GetResourceDownloadURL([string]$resourceName, [bool]$maskResponse = $True)
 {
-	[string]$queriedURL=QueryResourceDownloadUrlDB -resourceName $resourceName
+	[string]$queriedURL=QueryResourceDownloadUrlDB -resourceName $resourceName -maskResponse $maskResponse
 	
 	return [string]$queriedURL
 }
