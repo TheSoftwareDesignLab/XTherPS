@@ -32,6 +32,7 @@
 # Loads the code under test
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 . $currentDirectory/../src/SEResourcesDB.ps1
+. $currentDirectory/../src/dal/DALEdge.ps1
 
 # Tests logic
 Describe 'GetResourceDownloadURL' {
@@ -50,4 +51,23 @@ Describe 'GetResourceDownloadURL' {
         $downloadURL | Should -BeLike $expectedDriverUrlPart
     }
 
+}
+
+Describe -Name 'GetEdgeVersionCrossPlatform' -Tags @('unitary') {
+
+    $chromeDriverResource = "CHR"
+
+    It 'should return edge version for Windows' {
+        #Arrange
+        $expectedChromeVersion = "17.17134.556"
+        Mock 'FindEdgeApplicationPath' -MockWith { "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe" }
+        Mock 'Test-Path' -MockWith { $True }
+        Mock 'Get-ItemProperty' -MockWith { "this will be the version 11.00.17134.556 to be returned" } 
+
+        #act executing logic
+        $actualChromeVersion = GetEdgeVersionCrossPlatform
+
+        #assert that extracted version number was the expected
+        $actualChromeVersion | Should -BeExactly $expectedChromeVersion
+    }
 }

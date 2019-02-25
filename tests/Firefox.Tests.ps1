@@ -49,5 +49,49 @@ Describe 'GetResourceDownloadURL' {
         #assert that the url points to the proper resource
         $downloadURL | Should -BeLike $expectedDriverUrlPart
     }
+}
 
+Describe -Name 'GetFireFoxVersionCrossPlatform' -Tags @('unitary') {
+
+    It 'should return FireFox version for Windows' {
+        #Arrange
+        $expectedFireFoxVersion = "1.2.3"
+        Mock 'GetOsName' -MockWith { "WIN" }
+        Mock 'Test-Path' -MockWith { $True }
+        Mock 'Get-ItemProperty' -MockWith { "this will be the version $expectedFireFoxVersion to be returned" } 
+
+        #act executing logic
+        $actualFireFoxVersion = GetFireFoxVersionCrossPlatform
+
+        #assert that extracted version number was the expected
+        $actualFireFoxVersion | Should -BeExactly $expectedFireFoxVersion
+    }
+
+    It 'should return FireFox version for MacOS' {
+        #Arrange
+        $expectedFireFoxVersion = "1.2"
+        Mock 'GetOsName' -MockWith { "MAC" }
+        Mock 'Test-Path' -MockWith { $True }        
+        Mock 'cat' -MockWith { "this will be the version=$expectedFireFoxVersion to be returned" } 
+
+        #act executing logic
+        $actualFireFoxVersion = GetFireFoxVersionCrossPlatform
+
+        #assert that extracted version number was the expected
+        $actualFireFoxVersion | Should -BeExactly $expectedFireFoxVersion
+    }
+
+    It 'should return FireFox version for Linux' {
+        #Arrange
+        $expectedFireFoxVersion = "1.2"
+        Mock 'GetOsName' -MockWith { "LNX" }
+        Mock 'Invoke-Expression' -MockWith { '/mozilla/firefox'} -ParameterFilter { $command -eq "which firefox"} 
+        Mock 'Invoke-Expression' -MockWith { $expectedFireFoxVersion} -ParameterFilter { $command -like "*version"}
+
+        #act executing logic
+        $actualFireFoxVersion = GetFireFoxVersionCrossPlatform
+
+        #assert that extracted version number was the expected
+        $actualFireFoxVersion | Should -BeExactly $expectedFireFoxVersion
+    }
 }

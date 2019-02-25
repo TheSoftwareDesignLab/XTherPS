@@ -24,32 +24,42 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Script purpose:
 #
-# Testing the stand-alone webdriver
+# Testing the all selenium resources download
 #
 # @EiderMauricioAristizábalErazo
 #
 
 # Loads the code under test
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
-. $currentDirectory/../src/SEResourcesDB.ps1
-. $currentDirectory/UrlUtils.ps1
+. $currentDirectory/../src/XTherPS.ps1
 
 # Tests logic
-Describe -Name 'GetResourceDownloadURL' -Tags @('unitary') {
+Describe -Name 'XTherRunAll' -Tags @('integration') { 
+    $STDResource = "*"
+    $InstallDir = "c:\greensqa\aimaps\selenium"
 
-    $STDResource = "STD"
+    It 'Should download Selenium Stand-Alone server jar' {
+        Set-Location "$currentDirectory/../src"
 
-    It 'should return stand-alone driver valid URL for java 1.8 ' {     
-        #arrange
-        $expectedStandAloneUrlPart = "*3.141*"
+        try {
+            # prepare
+            # pending to ensure chrome and firefox browsers are installed
+            #
 
-        #act executing logic
-        Mock 'GetInstalledJavaVersion' -MockWith { "1.8" }
-        $downloadURL = GetResourceDownloadURL -resourceName $STDResource -maskResponse $False
-        $actualUrlExistance = IsThisUrlOkay -urlToTest $downloadURL
+            # Act
+            XTherRunAll -myInstallDir $InstallDir -myResources $STDResource
 
-        #assert that the url is valid and points to the proper resource
-        $actualUrlExistance | Should -BeTrue
-        $downloadURL | Should -BeLike $expectedStandAloneUrlPart
+            $downloadedJar = (Get-ChildItem $InstallDir -Recurse -Include "*.jar").FullName
+            Set-Location $currentDirectory
+
+            # Assert, at minium it sholuld download selenium stand alone
+            $downloadedJar | Should -Not -BeNullOrEmpty            
+        }
+        catch{
+            throw
+        }
+        finally {
+            Set-Location $currentDirectory
+        }
     }
 }
