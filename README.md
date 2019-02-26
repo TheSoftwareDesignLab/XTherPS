@@ -6,8 +6,8 @@
 
 
 # About XTherPS 
-[![N|Solid](https://github.com/TheSoftwareDesignLab/XTherPS/blob/master/src/img/XTherPSSmall.png)](http://www.greensqa.com)
-<br>
+[![N|Solid](https://greensqa.gallerycdn.vsassets.io/extensions/greensqa/build-release-task/1.0.24/1551112592093/Microsoft.VisualStudio.Services.Icons.Default)](http://www.greensqa.com)
+
 XTherPS is a cross-platform utility created by [GreenSQA](https://greensqa.com/en) for avoiding compatibility issues among selenium standalone server, web drivers and browsers. It is coded in PowerShell Core; therefore, it runs on Windows, Mac, and Linux. Supported resources are:
 
 - Selenium Stand-Alone Server (STD): Supports the Selenium Stand Alone Server compatible with the java version of the running machine
