@@ -1,3 +1,4 @@
 ﻿# XTherPS volatile files
 testResults.xml
-codeCoverage.xml
+
+#codeCoverage.xml
