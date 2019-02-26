@@ -18,6 +18,8 @@ XTherPS is a cross-platform utility created by [GreenSQA](https://greensqa.com/e
 
 - Edge Web Driver (EDG): Microsoft Edge browser supported from version 12
 
+XTherPS is available via Azure DevOps extension [check it out here](https://marketplace.visualstudio.com/items?itemName=GreenSQA.build-release-task)
+
 # Motivation
 Compatibility issues between web drivers, browsers and Selenium stand-alone frequently appear when new versions of either of them are released. Updating the browser typically breaks CI and CD pipelines requiring human intervention to also update selenium resources in the running machine to those with the correct compatibility.
 Is a hassle for development or testing teams to manually update their packaged apps, testing environments or virtual machine images; with XTherPS that manual activity disappears. XTherPS supporting team will always keep an updated compatibility database of selenium URL resources for ensuring that XTherPS will always install the right Selenium resource for you.
