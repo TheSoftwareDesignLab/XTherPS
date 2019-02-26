@@ -32,28 +32,25 @@
 # Loads the code under test
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 . $currentDirectory/../src/XTherPS.ps1
+. $currentDirectory/AssertUtils.ps1
 
 # Tests logic
 Describe -Name 'XTherRunAll' -Tags @('integration') { 
-    $STDResource = "*"
+    $STDResource = "STD"
     $InstallDir = "c:\greensqa\aimaps\selenium"
 
     It 'Should download Selenium Stand-Alone server jar' {
         Set-Location "$currentDirectory/../src"
 
         try {
-            # prepare
-            # pending to ensure chrome and firefox browsers are installed
-            #
+            # pending to assert chrome and firefox browsers are installed
 
             # Act
             XTherRunAll -myInstallDir $InstallDir -myResources $STDResource
-
             $downloadedJar = (Get-ChildItem $InstallDir -Recurse -Include "*.jar").FullName
-            Set-Location $currentDirectory
 
-            # Assert, at minium it sholuld download selenium stand alone
-            $downloadedJar | Should -Not -BeNullOrEmpty            
+            # Assert, at minium it sholuld retrieve selenium stand alone download url
+            AssertStringIsNotNullOrEmpty $downloadedJar "Is expected to retrieve a Jar download url"
         }
         catch{
             throw

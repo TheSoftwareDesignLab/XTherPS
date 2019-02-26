@@ -1,7 +1,7 @@
 Packing (Build):
 [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherBuildPackageCI?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=125&branchName=master)
 Packing (Tests):
-![Test Coverage](https://img.shields.io/badge/coverage-71%25-orange.svg?maxAge=60)
+![Test Coverage](https://img.shields.io/badge/coverage-70%25-orange.svg?maxAge=60)
 
 | Windows  | Linux  | MacOS  |
 |---|---|---|

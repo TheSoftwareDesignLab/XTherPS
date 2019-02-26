@@ -34,6 +34,7 @@ $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 
 . $currentDirectory/../src/SEResourcesDB.ps1
 . $currentDirectory/../src/dal/DALChrome.ps1
+. $currentDirectory/AssertUtils.ps1
 
 # Tests logic
 Describe -Name 'GetResourceDownloadURL' -Tags @('unitary') {
@@ -42,16 +43,15 @@ Describe -Name 'GetResourceDownloadURL' -Tags @('unitary') {
 
     It 'should return chrome driver valid URL for browser 72' {
         #Arrange
-        $expectedDriverUrlPart = "*2.46*"
+        $expectedDriverUrlPart = "2.46"
 
         #act executing logic
         Mock 'GetResourceFullVersion' -MockWith { "72.0.3626.109" }
         $downloadURL = GetResourceDownloadURL -resourceName $chromeDriverResource -maskResponse $False
 
         #assert that the url points to the proper resource
-        $downloadURL | Should -BeLike $expectedDriverUrlPart
+        AssertStringContainsValue $downloadURL $expectedDriverUrlPart "Expected to contain a URL"
     }
-
 }
 
 Describe -Name 'GetChromeVersionCrossPlatform' -Tags @('unitary') {
@@ -68,7 +68,7 @@ Describe -Name 'GetChromeVersionCrossPlatform' -Tags @('unitary') {
         $actualChromeVersion = GetChromeVersionCrossPlatform
 
         #assert that extracted version number was the expected
-        $actualChromeVersion | Should -BeExactly $expectedChromeVersion
+        AssertStringsAreEqual $actualChromeVersion $expectedChromeVersion "Expected to be version $expectedChromeVersion"
     }
 
     It 'should return chrome version for MacOS' {
@@ -82,7 +82,7 @@ Describe -Name 'GetChromeVersionCrossPlatform' -Tags @('unitary') {
         $actualChromeVersion = GetChromeVersionCrossPlatform
 
         #assert that extracted version number was the expected
-        $actualChromeVersion | Should -BeExactly $expectedChromeVersion
+        AssertStringsAreEqual $actualChromeVersion $expectedChromeVersion "Expected to be version $expectedChromeVersion"
     }
 
     It 'should return chrome version for Linux' {
@@ -96,6 +96,6 @@ Describe -Name 'GetChromeVersionCrossPlatform' -Tags @('unitary') {
         $actualChromeVersion = GetChromeVersionCrossPlatform
 
         #assert that extracted version number was the expected
-        $actualChromeVersion | Should -BeExactly $expectedChromeVersion
+        AssertStringsAreEqual $actualChromeVersion $expectedChromeVersion "Expected to be version $expectedChromeVersion"
     }
 }
