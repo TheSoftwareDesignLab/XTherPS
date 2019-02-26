@@ -1,8 +1,8 @@
 ![Tests](https://img.shields.io/azure-devops/tests/greensqa/xtherps/125.svg?compact_message) 
 ![Test Coverage](https://img.shields.io/azure-devops/coverage/greensqa/xtherps/125.svg?label=code%20coverage)
-![Build Status](https://img.shields.io/azure-devops/build/greensqa/xtherps/129.svg?label=Windows%20Buid)
-![Build Status](https://img.shields.io/azure-devops/build/greensqa/xtherps/128.svg?label=Mac%20Buid)
-![Build Status](https://img.shields.io/azure-devops/build/greensqa/xtherps/127.svg?label=Linux%20Buid)
+![Build Status](https://img.shields.io/azure-devops/build/greensqa/xtherps/129.svg?label=Windows%20Build)
+![Build Status](https://img.shields.io/azure-devops/build/greensqa/xtherps/128.svg?label=Mac%20Build)
+![Build Status](https://img.shields.io/azure-devops/build/greensqa/xtherps/127.svg?label=Linux%20Build)
 
 
 # About XTherPS 
