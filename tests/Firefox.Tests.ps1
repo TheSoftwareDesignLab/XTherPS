@@ -65,7 +65,7 @@ Describe -Name 'GetFireFoxVersionCrossPlatform' -Tags @('unitary') {
         $actualFireFoxVersion = GetFireFoxVersionCrossPlatform
 
         #assert that extracted version number was the expected
-        $actualFireFoxVersion | Should -BeExactly $expectedFireFoxVersion
+        AssertStringsAreEqual $actualFireFoxVersion $expectedFireFoxVersion "Expected to be version $expectedFireFoxVersion"
     }
 
     It 'should return FireFox version for MacOS' {
