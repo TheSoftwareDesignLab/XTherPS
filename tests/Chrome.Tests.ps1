@@ -29,7 +29,7 @@
 # @EiderMauricioAristizábalErazo
 #
 
-# Loads the code under test
+# Loads the code under test and some other test resources
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 
 . $currentDirectory/../src/SEResourcesDB.ps1
@@ -55,8 +55,6 @@ Describe -Name 'GetResourceDownloadURL' -Tags @('unitary') {
 }
 
 Describe -Name 'GetChromeVersionCrossPlatform' -Tags @('unitary') {
-
-    $chromeDriverResource = "CHR"
 
     It 'should return chrome version for Windows' {
         #Arrange

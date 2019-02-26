@@ -29,9 +29,10 @@
 # @EiderMauricioAristizábalErazo
 #
 
-# Loads the code under test
+# Loads the code under test and some other test resources
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 . $currentDirectory/../src/SEResourcesDB.ps1
+. $currentDirectory/AssertUtils.ps1
 
 # Tests logic
 Describe 'GetResourceDownloadURL' {
@@ -40,14 +41,14 @@ Describe 'GetResourceDownloadURL' {
 
     It 'should return firefox driver valid URL for browser 64' {
         #Arrange
-        $expectedDriverUrlPart = "*0.24*"
+        $expectedDriverUrlPart = "0.24"
 
         #act executing logic
         Mock 'GetResourceFullVersion' -MockWith { "64.0.2" }
         $downloadURL = GetResourceDownloadURL -resourceName $firefoxDriverResource -maskResponse $False
 
         #assert that the url points to the proper resource
-        $downloadURL | Should -BeLike $expectedDriverUrlPart
+        AssertStringContainsValue $downloadURL $expectedDriverUrlPart "Expected to contain a URL"
     }
 }
 
@@ -78,7 +79,7 @@ Describe -Name 'GetFireFoxVersionCrossPlatform' -Tags @('unitary') {
         $actualFireFoxVersion = GetFireFoxVersionCrossPlatform
 
         #assert that extracted version number was the expected
-        $actualFireFoxVersion | Should -BeExactly $expectedFireFoxVersion
+        AssertStringsAreEqual $actualFireFoxVersion $expectedFireFoxVersion "Expected to be version $expectedFireFoxVersion"
     }
 
     It 'should return FireFox version for Linux' {
@@ -92,6 +93,6 @@ Describe -Name 'GetFireFoxVersionCrossPlatform' -Tags @('unitary') {
         $actualFireFoxVersion = GetFireFoxVersionCrossPlatform
 
         #assert that extracted version number was the expected
-        $actualFireFoxVersion | Should -BeExactly $expectedFireFoxVersion
+        AssertStringsAreEqual $actualFireFoxVersion $expectedFireFoxVersion "Expected to be version $expectedFireFoxVersion"
     }
 }

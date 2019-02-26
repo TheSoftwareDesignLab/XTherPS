@@ -29,10 +29,11 @@
 # @EiderMauricioAristizábalErazo
 #
 
-# Loads the code under test
+# Loads the code under test and some other test resources
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 . $currentDirectory/../src/SEResourcesDB.ps1
 . $currentDirectory/../src/dal/DALEdge.ps1
+. $currentDirectory/AssertUtils.ps1
 
 # Tests logic
 Describe 'GetResourceDownloadURL' {
@@ -41,33 +42,31 @@ Describe 'GetResourceDownloadURL' {
 
     It 'should return edge driver valid URL for browser 12' {
         #Arrange
-        $expectedDriverUrlPart = "*8D0D08CF-790D-4586-B726-C6469A9ED49C*"
+        $expectedDriverUrlPart = "8D0D08CF-790D-4586-B726-C6469A9ED49C"
 
         #act executing logic
         Mock 'GetResourceFullVersion' -MockWith { "12" }
         $downloadURL = GetResourceDownloadURL -resourceName $edgeDriverResource -maskResponse $False
 
         #assert that the url points to the proper resource
-        $downloadURL | Should -BeLike $expectedDriverUrlPart
+        AssertStringContainsValue $downloadURL $expectedDriverUrlPart "Expected to contain a URL"
     }
 
 }
 
 Describe -Name 'GetEdgeVersionCrossPlatform' -Tags @('unitary') {
 
-    $chromeDriverResource = "CHR"
-
     It 'should return edge version for Windows' {
         #Arrange
-        $expectedChromeVersion = "17.17134.556"
+        $expectedEdgeVersion = "17.17134.556"
         Mock 'FindEdgeApplicationPath' -MockWith { "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\MicrosoftEdge.exe" }
         Mock 'Test-Path' -MockWith { $True }
         Mock 'Get-ItemProperty' -MockWith { "this will be the version 11.00.17134.556 to be returned" } 
 
         #act executing logic
-        $actualChromeVersion = GetEdgeVersionCrossPlatform
+        $actualEdgeVersion = GetEdgeVersionCrossPlatform
 
         #assert that extracted version number was the expected
-        $actualChromeVersion | Should -BeExactly $expectedChromeVersion
+        AssertStringsAreEqual $actualEdgeVersion $expectedEdgeVersion "Expected to be version $expectedEdgeVersion"
     }
 }

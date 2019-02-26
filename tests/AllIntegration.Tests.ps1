@@ -29,7 +29,7 @@
 # @EiderMauricioAristizábalErazo
 #
 
-# Loads the code under test
+# Loads the code under test and some other test resources
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 . $currentDirectory/../src/XTherPS.ps1
 . $currentDirectory/AssertUtils.ps1

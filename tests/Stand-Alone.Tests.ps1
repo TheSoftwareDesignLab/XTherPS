@@ -29,10 +29,10 @@
 # @EiderMauricioAristizábalErazo
 #
 
-# Loads the code under test
+# Loads the code under test and some other test resources
 $currentDirectory = [System.IO.Path]::GetDirectoryName($PSCommandPath)
 . $currentDirectory/../src/SEResourcesDB.ps1
-. $currentDirectory/UrlUtils.ps1
+. $currentDirectory/AssertUtils.ps1
 
 # Tests logic
 Describe -Name 'GetResourceDownloadURL' -Tags @('unitary') {
@@ -41,15 +41,14 @@ Describe -Name 'GetResourceDownloadURL' -Tags @('unitary') {
 
     It 'should return stand-alone driver valid URL for java 1.8 ' {     
         #arrange
-        $expectedStandAloneUrlPart = "*3.141*"
+        $expectedStandAloneUrlPart = "3.141"
 
         #act executing logic
         Mock 'GetInstalledJavaVersion' -MockWith { "1.8" }
         $downloadURL = GetResourceDownloadURL -resourceName $STDResource -maskResponse $False
-        $actualUrlExistance = IsThisUrlOkay -urlToTest $downloadURL
 
         #assert that the url is valid and points to the proper resource
-        $actualUrlExistance | Should -BeTrue
-        $downloadURL | Should -BeLike $expectedStandAloneUrlPart
+        AssertThisUrlExists $downloadURL "The URL [$downloadURL] does not exists"        
+        AssertStringContainsValue $downloadURL $expectedStandAloneUrlPart "Expected to contain a URL"
     }
 }
