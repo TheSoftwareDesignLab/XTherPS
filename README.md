@@ -1,11 +1,11 @@
-Packing (Build):
-[![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherBuildPackageCI?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=125&branchName=master)
-Packing (Tests):
-![Test Coverage](https://img.shields.io/badge/coverage-70%25-orange.svg?maxAge=60)
+|Quality|Status|
+|---|---|
+|Testing|![Tests](https://img.shields.io/azure-devops/tests/greensqa/xtherps/125.svg?compact_message)|
+|Coverage|![Test Coverage](https://img.shields.io/badge/coverage-71%25-orange.svg?maxAge=60)|
+|Windows| [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Windows?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=129&branchName=master)|
+|Linux|[![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Linux?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=127&branchName=master) |
+|MacOS| [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-MacOS?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=128&branchName=master) |
 
-| Windows  | Linux  | MacOS  |
-|---|---|---|
-| [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Windows?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=129&branchName=master)  | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-Linux?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=127&branchName=master)  | [![Build Status](https://greensqa.visualstudio.com/XTherPS/_apis/build/status/XTherCI-MacOS?branchName=master)](https://greensqa.visualstudio.com/XTherPS/_build/latest?definitionId=128&branchName=master)  |
 
 # About XTherPS 
 [![N|Solid](https://github.com/TheSoftwareDesignLab/XTherPS/blob/master/src/img/XTherPSSmall.png)](http://www.greensqa.com)
