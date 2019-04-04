@@ -96,6 +96,9 @@ function XTherInstallCompatibleResources ($myInstallDir, $myResources, $currentP
 	Invoke-Command -ScriptBlock $ScriptBlock
 }
 
+#
+# Prints corporate brand
+#
 function PrintCorporateBrand($myInstallDir, $myResources)
 {
 	$t = $host.ui.RawUI.ForegroundColor
