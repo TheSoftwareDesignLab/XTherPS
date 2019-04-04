@@ -87,7 +87,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 		return $extractedURL
 	}
 
-    #
+    	#
 	# Downloads a file
 	#
 	function DownloadPackageRaw ([String]$resourceUrl, [string]$packName) 
@@ -103,10 +103,11 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 		Write-Output " the package [$packName] of the resource [$resourceName]`n is downloaded to [$driverOutput/$packName]"		
 	}
 
-    #
+    	#
 	# Download and unzip a resource, finally removes the zip file downloaded
 	#
-	function DownloadAndUnzip ([string]$resourceUrl, [string]$packAlias) {
+	function DownloadAndUnzip ([string]$resourceUrl, [string]$packAlias) 
+	{
 		$packageName = ""
 		[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
 		
@@ -127,6 +128,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 		Remove-Item $packageName
 	}
 
+	# Evaluate the resource type to install
 	if ($componentName -eq "STD") {
 		[string]$myStandAloneURL = GetCompatibleResourceDownloadURL("STD")
 		$validationResult = IsValidURL($myStandAloneURL)
@@ -134,8 +136,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 		if ($validationResult -eq $true){
 			DownloadPackageRaw $myStandAloneURL $componentName
 		}
-    }
-
+    	}
 	if ($componentName -eq "CHR") {
 		$myChromeDriverURL = GetCompatibleResourceDownloadURL("CHR")
 		$validationResult = IsValidURL($myChromeDriverURL)
@@ -144,7 +145,6 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 			DownloadAndUnzip $myChromeDriverURL $componentName
 		}
 	}
-    
 	if ($componentName -eq "FIR") {
 		$myGeckoDriverURL = GetCompatibleResourceDownloadURL("FIR")
 		$validationResult = IsValidURL($myGeckoDriverURL)
@@ -153,7 +153,6 @@ Write-Output "`nDownload Worker for [$componentName] Initialized"
 			DownloadAndUnzip $myGeckoDriverURL $componentName
 		}
 	}
-	
 	if ($componentName -eq "EDG") {
 		$myEdgeDriverURL = GetCompatibleResourceDownloadURL ("EDG")
 		$validationResult = IsValidURL($myEdgeDriverURL)
