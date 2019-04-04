@@ -42,7 +42,7 @@ param([String]$resources='STD',
 function XTherDownloadLogicScripts
 {
 	$stopWatch = [system.diagnostics.stopwatch]::startNew()
-    $destinationDirectory=[System.IO.Path]::GetDirectoryName($PSCommandPath)	
+    	$destinationDirectory=[System.IO.Path]::GetDirectoryName($PSCommandPath)	
 	$urlXTherIndex = "https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/XTherPSIndex.ps1?token=AHBiN7IU_Cb0uqzJnmIJwKOVZn5-Bz8Nks5cbW5OwA%3D%3D"
 
 	if(!(Test-Path -Path "$destinationDirectory/XTherPSIndex.ps1")) {		
@@ -58,20 +58,17 @@ function XTherDownloadLogicScripts
 		$rowFields = $row.Split(";")
 		
 		#ignore invalid rows
-		if ($rowFields.Length -le 2) 
-		{ 
+		if ($rowFields.Length -le 2) { 
 			continue; 
 		}
 
 		$URL = $rowFields[$idxFolder].replace("/", "" )
 
 		if(!(Test-Path -Path $destinationDirectory/$URL ) -and !($URL.Equals("") )) {		
-			if($destinationDirectory.Contains("\"))
-			{
+			if($destinationDirectory.Contains("\")){
 				[System.IO.Directory]::CreateDirectory($destinationDirectory+"\"+$URL)
 			}
-			else
-			{
+			else{
 				[System.IO.Directory]::CreateDirectory($destinationDirectory+"/"+$URL)
 			}				
 		}
@@ -89,8 +86,7 @@ function XTherDownloadLogicScripts
 function XTherInstallCompatibleResources ($myInstallDir, $myResources, $currentPath)
 {
 	#Detect which resources wants to install
-	if ($myResources.Equals("*"))
-	{
+	if ($myResources.Equals("*")) {
 		$myResources = "STD,CHR,FIR,EDG"
 	}
 
