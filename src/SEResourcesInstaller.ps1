@@ -43,7 +43,7 @@ param([String]$myResources='STD',
 #
 $downloaderWorker = { param([String]$driverOutput, [String]$componentName, [String]$xTherLocation)
 
-Write-Output "`nDownload Worker for [$componentName] Initialized"
+Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 
 # library
 . $xTherLocation/SEResourcesDB.ps1
