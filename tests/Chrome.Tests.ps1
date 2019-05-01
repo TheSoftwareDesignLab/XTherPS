@@ -41,12 +41,12 @@ Describe -Name 'GetResourceDownloadURL' -Tags @('unitary') {
 
     $chromeDriverResource = "CHR"
 
-    It 'should return chrome driver valid URL for browser 72' {
+    It 'should return chrome driver valid URL for browser 74' {
         #Arrange
-        $expectedDriverUrlPart = "2.46"
+        $expectedDriverUrlPart = "74.0."
 
         #act executing logic
-        Mock 'GetResourceFullVersion' -MockWith { "72.0.3626.109" }
+        Mock 'GetResourceFullVersion' -MockWith { "74.0.3729.131" }
         $downloadURL = GetResourceDownloadURL -resourceName $chromeDriverResource -maskResponse $False
 
         #assert that the url points to the proper resource
