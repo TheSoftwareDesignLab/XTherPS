@@ -44,6 +44,8 @@ $drvrDB = @"
 STD;ALL;--;JAR;1.7-LST;https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
 
 //Chrome windows
+CHR;WIN;86;ZIP;077-077;https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_win32.zip
+CHR;WIN;86;ZIP;076-076;https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_win32.zip
 CHR;WIN;86;ZIP;075-075;https://chromedriver.storage.googleapis.com/75.0.3770.8/chromedriver_win32.zip
 CHR;WIN;86;ZIP;074-074;https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_win32.zip
 CHR;WIN;86;ZIP;073-073;https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_win32.zip
@@ -54,6 +56,8 @@ CHR;WIN;86;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;WIN;86;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_win32.zip
 CHR;WIN;86;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip
 //Chrome mac
+CHR;MAC;64;ZIP;077-077;https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_mac64.zip
+CHR;MAC;64;ZIP;076-076;https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;075-075;https://chromedriver.storage.googleapis.com/75.0.3770.8/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;074-074;https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;073-073;https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_mac64.zip
@@ -64,6 +68,8 @@ CHR;MAC;64;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;MAC;64;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_mac64.zip
 //Chrome linux 64
+CHR;LNX;64;ZIP;077-077;https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip
+CHR;LNX;64;ZIP;076-076;https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;075-075;https://chromedriver.storage.googleapis.com/75.0.3770.8/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;074-074;https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;073-073;https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_linux64.zip
@@ -74,6 +80,8 @@ CHR;LNX;64;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;LNX;64;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip
 //Chrome linux 86
+CHR;LNX;86;ZIP;077-077;NON SUPPORTED
+CHR;LNX;86;ZIP;076-076;NON SUPPORTED
 CHR;LNX;86;ZIP;075-075;https://chromedriver.storage.googleapis.com/75.0.3770.8/chromedriver_linux32.zip
 CHR;LNX;86;ZIP;074-074;https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux32.zip
 CHR;LNX;86;ZIP;073-073;https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_linux32.zip
@@ -104,6 +112,9 @@ FIR;MAC;64;TGZ;057-999;https://github.com/mozilla/geckodriver/releases/download/
 FIR;MAC;64;TGZ;055-056;https://github.com/mozilla/geckodriver/releases/download/v0.20.1/geckodriver-v0.20.1-macos.tar.gz
 FIR;MAC;64;TGZ;053-054;https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-macos.tar.gz
 //Edge Windows 64
+EDG;WIN;64;EXE;078-078;https://msedgedriver.azureedge.net/78.0.257.0/edgedriver_win64.zip
+EDG;WIN;64;EXE;077-077;https://msedgedriver.azureedge.net/77.0.237.0/edgedriver_win64.zip
+EDG;WIN;64;EXE;076-076;https://msedgedriver.azureedge.net/76.0.183.0/edgedriver_win64.zip
 EDG;WIN;64;EXE;075-075;https://az813057.vo.msecnd.net/webdriver/msedgedriver_x64/msedgedriver.exe
 EDG;WIN;64;EXE;017-017;https://download.microsoft.com/download/F/8/A/F8AF50AB-3C3A-4BC4-8773-DC27B32988DD/MicrosoftWebDriver.exe
 EDG;WIN;64;EXE;016-016;https://download.microsoft.com/download/D/4/1/D417998A-58EE-4EFE-A7CC-39EF9E020768/MicrosoftWebDriver.exe
@@ -112,6 +123,9 @@ EDG;WIN;64;EXE;014-014;https://download.microsoft.com/download/3/2/D/32D3E464-F2
 EDG;WIN;64;EXE;013-013;https://download.microsoft.com/download/C/0/7/C07EBF21-5305-4EC8-83B1-A6FCC8F93F45/MicrosoftWebDriver.exe
 EDG;WIN;64;EXE;012-012;https://download.microsoft.com/download/8/D/0/8D0D08CF-790D-4586-B726-C6469A9ED49C/MicrosoftWebDriver.exe
 //Edge Windows 32
+EDG;WIN;32;EXE;078-078;https://msedgedriver.azureedge.net/78.0.257.0/edgedriver_win32.zip
+EDG;WIN;32;EXE;077-077;https://msedgedriver.azureedge.net/77.0.237.0/edgedriver_win32.zip
+EDG;WIN;32;EXE;076-076;https://msedgedriver.azureedge.net/76.0.183.0/edgedriver_win32.zip
 EDG;WIN;32;EXE;075-075;https://az813057.vo.msecnd.net/webdriver/msedgedriver_x86/msedgedriver.exe
 EDG;WIN;32;EXE;017-017;https://download.microsoft.com/download/F/8/A/F8AF50AB-3C3A-4BC4-8773-DC27B32988DD/MicrosoftWebDriver.exe
 EDG;WIN;32;EXE;016-016;https://download.microsoft.com/download/D/4/1/D417998A-58EE-4EFE-A7CC-39EF9E020768/MicrosoftWebDriver.exe
