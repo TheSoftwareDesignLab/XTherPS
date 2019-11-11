@@ -135,6 +135,7 @@ FIR;MAC;64;TGZ;053-054;https://github.com/mozilla/geckodriver/releases/download/
 //
 //
 //Edge Windows 64
+EDG;WIN;64;EXE;080-080;https://msedgedriver.azureedge.net/80.0.328.0/edgedriver_win64.zip
 EDG;WIN;64;EXE;079-079;https://msedgedriver.azureedge.net/79.0.313.0/edgedriver_win64.zip
 EDG;WIN;64;EXE;078-078;https://msedgedriver.azureedge.net/78.0.257.0/edgedriver_win64.zip
 EDG;WIN;64;EXE;077-077;https://msedgedriver.azureedge.net/77.0.237.0/edgedriver_win64.zip
@@ -147,6 +148,7 @@ EDG;WIN;64;EXE;014-014;https://download.microsoft.com/download/3/2/D/32D3E464-F2
 EDG;WIN;64;EXE;013-013;https://download.microsoft.com/download/C/0/7/C07EBF21-5305-4EC8-83B1-A6FCC8F93F45/MicrosoftWebDriver.exe
 EDG;WIN;64;EXE;012-012;https://download.microsoft.com/download/8/D/0/8D0D08CF-790D-4586-B726-C6469A9ED49C/MicrosoftWebDriver.exe
 //Edge Windows 32
+EDG;WIN;32;EXE;080-080;https://msedgedriver.azureedge.net/80.0.328.0/edgedriver_win32.zip
 EDG;WIN;32;EXE;079-079;https://msedgedriver.azureedge.net/79.0.313.0/edgedriver_win32.zip
 EDG;WIN;32;EXE;078-078;https://msedgedriver.azureedge.net/78.0.257.0/edgedriver_win32.zip
 EDG;WIN;32;EXE;077-077;https://msedgedriver.azureedge.net/77.0.237.0/edgedriver_win32.zip
