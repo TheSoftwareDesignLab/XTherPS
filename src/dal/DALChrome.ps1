@@ -87,6 +87,7 @@ function GetChromeVersionInLinux()
 {
 	$chromeVersionNum =""
 	$chromePath = Invoke-Expression "which google-chrome"
+	Write-Output "Chrome path is: $chromePath"
 	
 	if(!($chromePath -eq "")) 
 	{
