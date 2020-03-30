@@ -136,6 +136,7 @@ function GetChromeVersionCrossPlatform()
 		$chrVersion = GetChromeVersionInLinux
 	}
 
+	Write-Output "Current installed google chrome version is: $chrVersion"
 	return $chrVersion
 }
 
