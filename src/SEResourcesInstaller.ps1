@@ -199,7 +199,12 @@ function installSeleniumSupportResources
 	}
 
 	# Wait for the downloaderWorkers to finish
-	Get-Job | Wait-Job | Receive-Job
+	
+	#Get-Job | Wait-Job | Receive-Job
+	Get-Job | Wait-Job
+	$varLog = Receive-Job $job 6>&1
+	Write-Output worker log
+	Write-Output $varLog
 }
 
 # Main Entrypoint
