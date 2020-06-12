@@ -45,7 +45,7 @@ STD;ALL;--;JAR;1.7-LST;https://selenium-release.storage.googleapis.com/3.141/sel
 //
 //
 //Chrome windows
-CHR;WIN;86;ZIP;083-083;https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_win32.zip
+CHR;WIN;86;ZIP;084-084;https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_win32.zip
 CHR;WIN;86;ZIP;083-083;https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_win32.zip
 CHR;WIN;86;ZIP;081-081;https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_win32.zip
 CHR;WIN;86;ZIP;080-080;https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_win32.zip
