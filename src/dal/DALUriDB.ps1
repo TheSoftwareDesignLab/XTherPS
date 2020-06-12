@@ -45,6 +45,8 @@ STD;ALL;--;JAR;1.7-LST;https://selenium-release.storage.googleapis.com/3.141/sel
 //
 //
 //Chrome windows
+CHR;WIN;86;ZIP;083-083;https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_win32.zip
+CHR;WIN;86;ZIP;083-083;https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_win32.zip
 CHR;WIN;86;ZIP;081-081;https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_win32.zip
 CHR;WIN;86;ZIP;080-080;https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_win32.zip
 CHR;WIN;86;ZIP;079-079;https://chromedriver.storage.googleapis.com/79.0.3945.16/chromedriver_win32.zip
@@ -61,6 +63,8 @@ CHR;WIN;86;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;WIN;86;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_win32.zip
 CHR;WIN;86;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip
 //Chrome mac
+CHR;MAC;64;ZIP;084-084;https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_mac64.zip
+CHR;MAC;64;ZIP;083-083;https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;081-081;https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;080-080;https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;079-079;https://chromedriver.storage.googleapis.com/79.0.3945.16/chromedriver_mac64.zip
@@ -77,6 +81,8 @@ CHR;MAC;64;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;MAC;64;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_mac64.zip
 //Chrome linux 64
+CHR;LNX;64;ZIP;084-084;https://chromedriver.storage.googleapis.com/84.0.4147.30/chromedriver_linux64.zip
+CHR;LNX;64;ZIP;083-083;https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;081-081;https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;080-080;https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;079-079;https://chromedriver.storage.googleapis.com/79.0.3945.16/chromedriver_linux64.zip
