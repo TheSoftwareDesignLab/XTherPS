@@ -39,14 +39,23 @@
 function GetChromeVersionInWindows()
 {
 	$useChromePath = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+	$useChromePathx64 = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 	$chromeVersionNum =""
-
-	if((Test-Path -Path $useChromePath)) 
+	$data=""
+	
+	if((Test-Path -Path $useChromePath))
 	{
 		$data = Get-ItemProperty -Path $useChromePath | Format-list -Property VersionInfo | Out-String	
+	}elseif((Test-Path -Path $useChromePathx64))
+	{
+		 $data = Get-ItemProperty -Path $useChromePathx64 | Format-list -Property VersionInfo | Out-String
+	}
+	
+	if(!($data -eq "")) 
+	{
 		$chromeVersionNum = ([regex]"(\d+.\d+.\d+.\d+)").Match($data).Captures[0].value
-
-	}else 
+	}
+	else 
 	{
 		Write-Output "Path not found: $useChromePath"
 		$chromeVersionNum = "Version Not Found"
