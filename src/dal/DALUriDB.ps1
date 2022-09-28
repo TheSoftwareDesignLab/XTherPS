@@ -45,7 +45,9 @@ STD;ALL;--;JAR;1.7-LST;https://selenium-release.storage.googleapis.com/3.141/sel
 //
 //
 //Chrome windows 32
-CHR;WIN;86;ZIP;102-999;https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_win32.zip
+CHR;WIN;86;ZIP;106-999;https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_win32.zip
+CHR;WIN;86;ZIP;103-105;https://chromedriver.storage.googleapis.com/105.0.5195.52/chromedriver_win32.zip
+CHR;WIN;86;ZIP;102-102;https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_win32.zip
 CHR;WIN;86;ZIP;101-101;https://chromedriver.storage.googleapis.com/101.0.4951.41/chromedriver_win32.zip
 CHR;WIN;86;ZIP;100-100;https://chromedriver.storage.googleapis.com/100.0.4896.20/chromedriver_win32.zip
 CHR;WIN;86;ZIP;099-099;https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_win32.zip
@@ -81,7 +83,9 @@ CHR;WIN;86;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;WIN;86;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_win32.zip
 CHR;WIN;86;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip
 //Chrome mac
-CHR;MAC;64;ZIP;102-999;https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_mac64.zip
+CHR;MAC;64;ZIP;106-999;https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
+CHR;MAC;64;ZIP;103-105;https://chromedriver.storage.googleapis.com/105.0.5195.52/chromedriver_mac64.zip
+CHR;MAC;64;ZIP;102-102;https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;101-101;https://chromedriver.storage.googleapis.com/101.0.4951.41/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;100-100;https://chromedriver.storage.googleapis.com/100.0.4896.20/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;099-099;https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_mac64.zip
@@ -117,7 +121,9 @@ CHR;MAC;64;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;MAC;64;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_mac64.zip
 //Chrome linux 64
-CHR;LNX;64;ZIP;102-999;https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_linux64.zip
+CHR;LNX;64;ZIP;106-999;https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_linux64.zip
+CHR;LNX;64;ZIP;103-105;https://chromedriver.storage.googleapis.com/105.0.5195.52/chromedriver_linux64.zip
+CHR;LNX;64;ZIP;102-102;https://chromedriver.storage.googleapis.com/102.0.5005.61/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;101-101;https://chromedriver.storage.googleapis.com/101.0.4951.41/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;100-100;https://chromedriver.storage.googleapis.com/100.0.4896.20/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;099-099;https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_linux64.zip
