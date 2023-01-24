@@ -45,7 +45,8 @@ STD;ALL;--;JAR;1.7-LST;https://selenium-release.storage.googleapis.com/3.141/sel
 //
 //
 //Chrome windows 32
-CHR;WIN;86;ZIP;109-999;https://chromedriver.storage.googleapis.com/109.0.5414.74/chromedriver_win32.zip
+CHR;WIN;86;ZIP;110-999;https://chromedriver.storage.googleapis.com/110.0.5481.30/chromedriver_win32.zip
+CHR;WIN;86;ZIP;109-109;https://chromedriver.storage.googleapis.com/109.0.5414.74/chromedriver_win32.zip
 CHR;WIN;86;ZIP;108-108;https://chromedriver.storage.googleapis.com/108.0.5359.71/chromedriver_win32.zip
 CHR;WIN;86;ZIP;107-107;https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_win32.zip
 CHR;WIN;86;ZIP;106-106;https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_win32.zip
@@ -88,7 +89,8 @@ CHR;WIN;86;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;WIN;86;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_win32.zip
 CHR;WIN;86;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip
 //Chrome mac
-CHR;MAC;64;ZIP;109-999;https://chromedriver.storage.googleapis.com/109.0.5414.74/chromedriver_mac64.zip
+CHR;MAC;64;ZIP;110-999;https://chromedriver.storage.googleapis.com/110.0.5481.30/chromedriver_mac64.zip
+CHR;MAC;64;ZIP;109-109;https://chromedriver.storage.googleapis.com/109.0.5414.74/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;108-108;https://chromedriver.storage.googleapis.com/108.0.5359.71/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;107-107;https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;106-106;https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_mac64.zip
@@ -131,7 +133,8 @@ CHR;MAC;64;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;MAC;64;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_mac64.zip
 //Chrome linux 64
-CHR;LNX;64;ZIP;109-999;https://chromedriver.storage.googleapis.com/109.0.5414.74/chromedriver_linux64.zip
+CHR;LNX;64;ZIP;110-999;https://chromedriver.storage.googleapis.com/110.0.5481.30/chromedriver_linux64.zip
+CHR;LNX;64;ZIP;109-109;https://chromedriver.storage.googleapis.com/109.0.5414.74/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;108-999;https://chromedriver.storage.googleapis.com/108.0.5359.71/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;107-107;https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;106-106;https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_linux64.zip
@@ -187,8 +190,9 @@ CHR;LNX;86;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedr
 //
 //
 //FireFox linux 86
-FIR;LNX;86;TGZ;086-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux32.tar.gz
-FIR;LNX;86;TGZ;084-085;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux32.tar.gz
+FIR;LNX;86;TGZ;102-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux32.tar.gz
+FIR;LNX;86;TGZ;091-101;https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux32.tar.gz
+FIR;LNX;86;TGZ;084-090;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux32.tar.gz
 FIR;LNX;86;TGZ;082-083;https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-linux32.tar.gz
 FIR;LNX;86;TGZ;079-081;https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-linux32.tar.gz
 FIR;LNX;86;TGZ;069-078;https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux32.tar.gz
@@ -197,8 +201,9 @@ FIR;LNX;86;TGZ;057-067;https://github.com/mozilla/geckodriver/releases/download/
 FIR;LNX;86;TGZ;055-056;https://github.com/mozilla/geckodriver/releases/download/v0.20.1/geckodriver-v0.20.1-linux32.tar.gz
 FIR;LNX;86;TGZ;053-054;https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux32.tar.gz
 //FireFox linux 64
-FIR;LNX;64;TGZ;086-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux64.tar.gz
-FIR;LNX;64;TGZ;084-085;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
+FIR;LNX;64;TGZ;102-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux64.tar.gz
+FIR;LNX;64;TGZ;091-101;https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux64.tar.gz
+FIR;LNX;64;TGZ;084-090;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
 FIR;LNX;64;TGZ;082-083;https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-linux64.tar.gz
 FIR;LNX;64;TGZ;079-081;https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-linux64.tar.gz
 FIR;LNX;64;TGZ;069-078;https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
@@ -207,8 +212,9 @@ FIR;LNX;64;TGZ;057-067;https://github.com/mozilla/geckodriver/releases/download/
 FIR;LNX;64;TGZ;055-056;https://github.com/mozilla/geckodriver/releases/download/v0.20.1/geckodriver-v0.20.1-linux64.tar.gz
 FIR;LNX;64;TGZ;053-054;https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
 //FireFox windows 86
-FIR;WIN;86;ZIP;086-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-win32.zip
-FIR;WIN;86;ZIP;084-085;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win32.zip
+FIR;WIN;86;ZIP;102-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-win32.zip
+FIR;WIN;86;ZIP;091-101;https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-win32.zip
+FIR;WIN;86;ZIP;084-090;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win32.zip
 FIR;WIN;86;ZIP;082-083;https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-win32.zip
 FIR;WIN;86;ZIP;079-081;https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-win32.zip
 FIR;WIN;86;ZIP;069-078;https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-win32.zip
@@ -217,8 +223,9 @@ FIR;WIN;86;ZIP;057-067;https://github.com/mozilla/geckodriver/releases/download/
 FIR;WIN;86;ZIP;055-056;https://github.com/mozilla/geckodriver/releases/download/v0.20.1/geckodriver-v0.20.1-win32.zip
 FIR;WIN;86;ZIP;053-054;https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-win32.zip
 //FireFox windows 64
-FIR;WIN;64;ZIP;086-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-win64.zip
-FIR;WIN;64;ZIP;084-085;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip
+FIR;WIN;64;ZIP;102-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-win64.zip
+FIR;WIN;64;ZIP;091-101;https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-win64.zip
+FIR;WIN;64;ZIP;084-090;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip
 FIR;WIN;64;ZIP;082-083;https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-win64.zip
 FIR;WIN;64;ZIP;079-081;https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-win64.zip
 FIR;WIN;64;ZIP;069-078;https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-win64.zip
@@ -227,8 +234,9 @@ FIR;WIN;64;ZIP;057-067;https://github.com/mozilla/geckodriver/releases/download/
 FIR;WIN;64;ZIP;055-056;https://github.com/mozilla/geckodriver/releases/download/v0.20.1/geckodriver-v0.20.1-win64.zip
 FIR;WIN;64;ZIP;053-054;https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-win64.zip
 //FireFox mac 64
-FIR;MAC;64;TGZ;086-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-macos.tar.gz
-FIR;MAC;64;TGZ;084-085;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-macos.tar.gz
+FIR;MAC;64;TGZ;102-999;https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-macos.tar.gz
+FIR;MAC;64;TGZ;091-101;https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-macos.tar.gz
+FIR;WIN;64;ZIP;084-090;https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip
 FIR;MAC;64;TGZ;082-083;https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-macos.tar.gz
 FIR;MAC;64;TGZ;079-081;https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-macos.tar.gz
 FIR;MAC;64;TGZ;069-078;https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-macos.tar.gz
@@ -239,7 +247,7 @@ FIR;MAC;64;TGZ;053-054;https://github.com/mozilla/geckodriver/releases/download/
 //
 //
 //Edge Legacy Windows 64
-EDG;WIN;64;EXE;111-999;https://msedgedriver.azureedge.net/111.0.1614.0/edgedriver_win64.zip
+EDG;WIN;64;EXE;111-999;https://msedgedriver.azureedge.net/111.0.1641.0/edgedriver_win64.zip
 EDG;WIN;64;EXE;110-110;https://msedgedriver.azureedge.net/110.0.1535.0/edgedriver_win64.zip
 EDG;WIN;64;EXE;081-109;https://msedgedriver.azureedge.net/109.0.1517.0/edgedriver_win64.zip
 EDG;WIN;64;EXE;080-080;https://msedgedriver.azureedge.net/80.0.328.0/edgedriver_win64.zip
@@ -255,7 +263,7 @@ EDG;WIN;64;EXE;014-014;https://download.microsoft.com/download/3/2/D/32D3E464-F2
 EDG;WIN;64;EXE;013-013;https://download.microsoft.com/download/C/0/7/C07EBF21-5305-4EC8-83B1-A6FCC8F93F45/MicrosoftWebDriver.exe
 EDG;WIN;64;EXE;012-012;https://download.microsoft.com/download/8/D/0/8D0D08CF-790D-4586-B726-C6469A9ED49C/MicrosoftWebDriver.exe
 //Edge Legacy Windows 32
-EDG;WIN;32;EXE;111-999;https://msedgedriver.azureedge.net/111.0.1614.0/edgedriver_win32.zip
+EDG;WIN;32;EXE;111-999;https://msedgedriver.azureedge.net/111.0.1641.0/edgedriver_win32.zip
 EDG;WIN;32;EXE;110-110;https://msedgedriver.azureedge.net/110.0.1535.0/edgedriver_win32.zip
 EDG;WIN;32;EXE;081-109;https://msedgedriver.azureedge.net/109.0.1517.0/edgedriver_win32.zip
 EDG;WIN;32;EXE;080-080;https://msedgedriver.azureedge.net/80.0.328.0/edgedriver_win32.zip
