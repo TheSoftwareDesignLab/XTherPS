@@ -100,7 +100,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 		(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$driverOutput/$resourceName")
 
 		#Writes the results to the console
-		Write-Output " the package [$packName] of the resource [$resourceName]`n is downloaded to [$driverOutput/$packName]"		
+		Write-Output " the package [$packName] of the resource [$resourceName]`n is downloaded to ruta [$driverOutput/$packName]"		
 	}
 
     	#
