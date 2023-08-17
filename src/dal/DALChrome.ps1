@@ -38,8 +38,8 @@
 #
 function GetChromeVersionInWindows()
 {
-	$useChromePath = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
-	$useChromePathx64 = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+	$useChromePath = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver-win32\chrome.exe"
+	$useChromePathx64 = "C:\Program Files\Google\Chrome\Application\chromedriver-win32\chrome.exe"
 	$chromeVersionNum =""
 	$data=""
 	
