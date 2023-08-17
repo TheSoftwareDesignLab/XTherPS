@@ -41,7 +41,7 @@ param([String]$myResources='STD',
 #
 # Worker block for downloading the resources (Stand alone or webdrivers)
 #
-$downloaderWorker = { param([String]$driverOutput, [String]$componentName, [String]$xTherLocation/chromedriver-win32/)
+$downloaderWorker = { param([String]$driverOutput, [String]$componentName, [String]$xTherLocation)
 
 Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 
@@ -185,7 +185,7 @@ function installSeleniumSupportResources
 
 	if ($myResources.Contains("CHR"))
 	{
-		Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput,"CHR",$xtherLocation/chromedriver-win32/	
+		Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput,"CHR",$xtherLocation	
 	}
 
 	if ($myResources.Contains("FIR"))
