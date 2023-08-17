@@ -120,11 +120,11 @@ Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 			$packageName = "$driverOutput$packAlias" + "_pack.zip"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
 			Start-Sleep -m 800
-			Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force	
+			Expand-Archive -Path "$packageName" -DestinationPath "$(driverOutput)/chromedriver-win32/" -Force	
 		}
 		
 		Start-Sleep -m 500
-		Write-Output " the package [$packageName] of the resource [$resourceUrl]`n is downloaded and expanded to [$driverOutput]"
+		Write-Output " the package [$packageName] of the resource [$resourceUrl]`n is downloaded and expanded to [$(driverOutput)/chromedriver-win32/]"
 		Remove-Item $packageName
 	}
 
