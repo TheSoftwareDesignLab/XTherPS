@@ -35,7 +35,7 @@
 #
 
 param([String]$myResources='STD',
-	  [String]$myDriverOutput='C:/GreenSQA/AiMaps/Selenium/chromedriver-win32/'
+	  [String]$myDriverOutput='C:/GreenSQA/AiMaps/Selenium/'
 	 )
 
 #
