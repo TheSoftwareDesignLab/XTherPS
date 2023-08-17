@@ -124,7 +124,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 		}
 		
 		Start-Sleep -m 500
-		Write-Output " the package [$packageName] of the resource [$resourceUrl]`n is downloaded and expanded to [$driverOutput)]"
+		Write-Output " the package [$packageName] of the resource [$resourceUrl]`n is downloaded and expanded to [$driverOutput]"
 		Remove-Item $packageName
 	}
 
