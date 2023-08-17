@@ -185,7 +185,7 @@ function installSeleniumSupportResources
 
 	if ($myResources.Contains("CHR"))
 	{
-		Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput,"CHR",$xtherLocation	
+		Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput,"CHR",$(xtherLocation)/chromedriver-win32/	
 	}
 
 	if ($myResources.Contains("FIR"))
