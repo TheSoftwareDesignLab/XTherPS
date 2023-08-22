@@ -47,7 +47,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 
 # library
 . $xTherLocation/SEResourcesDB.ps1
-$versionFilePath = "https://github.com/TheSoftwareDesignLab/XTherPS/edit/f-10811/src/dal/DALChrome.ps1"
+$versionFilePath = "C:\Users\GreenSQA\Desktop\XTherPS\src\dal\DALChrome.ps1"
 
 	#
 	# Checks if a url begins with the "http" string
