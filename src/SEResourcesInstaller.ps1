@@ -121,21 +121,35 @@ $versionFilePath = "C:\Users\GreenSQA\Desktop\XTherPS\src\dal\DALChrome.ps1"
 			$packageName = "$driverOutput$packAlias" + "_pack.zip"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
 			Start-Sleep -m 800
-               		function DownloadChrome($valueHig) {
+            function DownloadChrome($valueHig) {
 
-    			   if ($hig -ge 115) {
-        		       Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
-		               Copy-Item '$driverOutput\chromedriver-win32\chromedriver.exe'  $driverOutput  
-		               Remove-Item "$driverOutput\chromedriver-win32\" -Force -Recurse
-                               Write-Host "Download >= 115"
-                            } else {
-                                Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force	
-                                Write-Host "Download < 115"
-                            }
-            	
-                          } 
-                          . $versionFilePath
-                          DownloadChrome $hig
+				if ($hig -ge 115 -and $componentName -eq "CHR") {
+					Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
+					
+					. $platformFilePath
+					$platform = GetOsName 
+					if ($platform -eq "WIN"){
+						$systemChr = "chromedriver-win32" 
+					} else{
+						if ($platform -eq "MAC"){
+							$systemChr = "chromedriver-mac-x64" 
+						} else{ 
+							if ($platform -eq "LNX"){
+								$systemChr = "chromedriver-linux64" 
+							}
+						}
+					}
+			
+					Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
+					Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
+					Write-Host "Download > = 115"
+				} else {
+					Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force	
+					Write-Host "Download < 115"
+				}           	
+			} 
+			. $versionFilePath 
+			DownloadChrome $hig 
 		}
 		
 		Start-Sleep -m 500
