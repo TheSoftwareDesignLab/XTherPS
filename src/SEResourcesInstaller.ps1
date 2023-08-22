@@ -47,7 +47,8 @@ Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 
 # library
 . $xTherLocation/SEResourcesDB.ps1
-$versionFilePath = "C:\Users\GreenSQA\Desktop\XTherPS\src\dal\DALChrome.ps1"
+$platformFilePath = ". $xTherLocation/SEResourcesDB.ps1"
+$versionFilePath = ". $xTherLocation/dal/DALChrome.ps1"
 
 	#
 	# Checks if a url begins with the "http" string
@@ -142,10 +143,10 @@ $versionFilePath = "C:\Users\GreenSQA\Desktop\XTherPS\src\dal\DALChrome.ps1"
 			
 					Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
 					Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
-					Write-Host "Download > = 115"
+					Write-Host "Download ChromeDriver version > = 115"
 				} else {
 					Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force	
-					Write-Host "Download < 115"
+					Write-Host "Download ChromeDriver version < 115"
 				}           	
 			} 
 			. $versionFilePath 
