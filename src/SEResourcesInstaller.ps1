@@ -47,6 +47,7 @@ Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 
 # library
 . $xTherLocation/SEResourcesDB.ps1
+$versionFilePath = "https://github.com/TheSoftwareDesignLab/XTherPS/edit/f-10811/src/dal/DALChrome.ps1"
 
 	#
 	# Checks if a url begins with the "http" string
@@ -120,7 +121,21 @@ Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 			$packageName = "$driverOutput$packAlias" + "_pack.zip"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
 			Start-Sleep -m 800
-			Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force	
+               		function DownloadChrome($valueHig) {
+
+    			   if ($hig -ge 115) {
+        		       Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
+		               Copy-Item '$driverOutput\chromedriver-win32\chromedriver.exe'  $driverOutput  
+		               Remove-Item "$driverOutput\chromedriver-win32\" -Force -Recurse
+                               Write-Host "Download >= 115"
+                            } else {
+                                Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force	
+                                Write-Host "Download < 115"
+                            }
+            	
+                          } 
+                          . $versionFilePath
+                          DownloadChrome $hig
 		}
 		
 		Start-Sleep -m 500
