@@ -121,37 +121,37 @@ $platformFilePath = "$xTherLocation/SEResourcesDB.ps1"
 			$packageName = "$driverOutput$packAlias" + "_pack.zip"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
 			Start-Sleep -m 800
-    function DownloadChrome() 
-    {
-      $textToFind = "edgedl.me.gvt1.com" 
+      function DownloadChrome() 
+      {
+        $textToFind = "edgedl.me.gvt1.com" 
 
-		  if ($resourceUrl -match $textToFind -and $componentName -eq "CHR") {
-          Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
-            
-          . $platformFilePath
-            $platform = GetOsName 
+        if ($resourceUrl -match $textToFind -and $componentName -eq "CHR") {
+            Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
+              
+            . $platformFilePath
+              $platform = GetOsName 
 
-          if ($platform -eq "WIN"){
-              $systemChr = "chromedriver-win32" 
-          } else{
-            if ($platform -eq "MAC"){
-                $systemChr = "chromedriver-mac-x64" 
-            } else{ 
-              if ($platform -eq "LNX"){
-                  $systemChr = "chromedriver-linux64" 
+            if ($platform -eq "WIN"){
+                $systemChr = "chromedriver-win32" 
+            } else{
+              if ($platform -eq "MAC"){
+                  $systemChr = "chromedriver-mac-x64" 
+              } else{ 
+                if ($platform -eq "LNX"){
+                    $systemChr = "chromedriver-linux64" 
+                }
               }
             }
-          }
-        
-          Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
-          Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
-          Write-Host "Download ChromeDriver version > = 115"
-        } else {
-          Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force 
-          Write-Host "ChromeDriver version < 115"
-        }           	
-		} 
-    DownloadChrome 
+          
+            Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
+            Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
+            Write-Host "Download ChromeDriver version > = 115"
+          } else {
+            Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force 
+            Write-Host "ChromeDriver version < 115"
+          }           	
+      } 
+      DownloadChrome 
 		}
 		
 		Start-Sleep -m 500
