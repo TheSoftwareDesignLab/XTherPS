@@ -145,8 +145,8 @@ $versionFilePath = ". $xTherLocation/dal/DALChrome.ps1"
 					Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
 					Write-Host "Download ChromeDriver version > = 115"
 				} else {
+          Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
 					Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
-					
 					Write-Host "Download ChromeDriver version < 115"
 				}           	
 			} 
