@@ -47,8 +47,8 @@ Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 
 # library
 . $xTherLocation/SEResourcesDB.ps1
-$platformFilePath = ". $xTherLocation/SEResourcesDB.ps1"
-$versionFilePath = ". $xTherLocation/dal/DALChrome.ps1"
+$platformFilePath = "$xTherLocation/SEResourcesDB.ps1"
+$versionFilePath = "$xTherLocation/dal/DALChrome.ps1"
 
 	#
 	# Checks if a url begins with the "http" string
@@ -122,8 +122,9 @@ $versionFilePath = ". $xTherLocation/dal/DALChrome.ps1"
 			$packageName = "$driverOutput$packAlias" + "_pack.zip"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
 			Start-Sleep -m 800
-            function DownloadChrome($valueHig) {
-
+      Write-Host " [$systemChr] [$hig]"
+      function DownloadChrome($valueHig) {
+        Write-Host " [$systemChr] [$valueHig]"
 				if ($hig -ge 115 -and $componentName -eq "CHR") {
 					Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
 					
@@ -143,19 +144,20 @@ $versionFilePath = ". $xTherLocation/dal/DALChrome.ps1"
 			
 					Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
 					Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
-					Write-Host "Download ChromeDriver version > = 115"
+					Write-Host " [$row] [$resourceFullVersion ] Download ChromeDriver version > = 115"
 				} else {
           Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
 					Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
-					Write-Host "[$systemChr] ChromeDriver version < 115"
+					Write-Host "[$hig] [$fullVersion] ChromeDriver version < 115"
 				}           	
 			} 
-			. $versionFilePath 
-			DownloadChrome $hig 
+      . $versionFilePath 
+			SomeOtherFunction $hig
+			DownloadChrome $hig
 		}
 		
 		Start-Sleep -m 500
-		Write-Output " the package [$packageName] of the resource [$resourceUrl]`n is downloaded and expanded to [$driverOutput]"
+		Write-Output " the package [$packageName] of the resource  [$resourceUrl]`n is downloaded and expanded to [$driverOutput]"
 		Remove-Item $packageName
 	}
 

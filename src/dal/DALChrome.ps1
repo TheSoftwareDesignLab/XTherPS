@@ -155,6 +155,7 @@ function GetChromeVersionCrossPlatform()
 # the webdriver version is between the low and high browser version
 # then returns the chromedriver download url
 #
+
 function GetChromeDownloadURLIfCompatible($chromeDataRow, $fullVersion)
 {
 	$rowFields = $chromeDataRow.Split(";") 
@@ -168,5 +169,16 @@ function GetChromeDownloadURLIfCompatible($chromeDataRow, $fullVersion)
 		$foundURL = $rowFields[$idxDrivrURL]
 	}
 
-	return $foundURL
+	return $foundURL, $hig
 }
+
+$foundURL, $hig = GetChromeDownloadURLIfCompatible $chromeDataRow $fullVersion
+
+# Llamar a la función SomeOtherFunction y pasar el valor de $hig
+function SomeOtherFunction($higValue)
+{
+    # Tu lógica aquí que utiliza $higValue
+    Write-Output "El valor de hig en SomeOtherFunction es: $higValue"
+}
+
+SomeOtherFunction $hig
