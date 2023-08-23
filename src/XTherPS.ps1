@@ -43,7 +43,7 @@ function XTherDownloadLogicScripts
 {
 	$stopWatch = [system.diagnostics.stopwatch]::startNew()
     	$destinationDirectory=[System.IO.Path]::GetDirectoryName($PSCommandPath)	
-	$urlXTherIndex = "https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/XTherPSIndex.ps1?token=AHBiN7IU_Cb0uqzJnmIJwKOVZn5-Bz8Nks5cbW5OwA%3D%3D"
+	$urlXTherIndex = "https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/f-10811/src/XTherPS.ps1"
 
 	if(!(Test-Path -Path "$destinationDirectory/XTherPSIndex.ps1")) {		
 		(New-Object System.Net.WebClient).DownloadFile("$urlXTherIndex", "$destinationDirectory/XTherPSIndex.ps1")
