@@ -41,7 +41,7 @@ DALChrome.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTher
 DALEdge.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALEdge.ps1
 DALFireFox.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALFireFox.ps1
 DALStandAlone.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALStandAlone.ps1
-DALUriDB.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALUriDB.ps1
+
 SEResourcesDB.ps1;/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/SEResourcesDB.ps1
 SEResourcesInstaller.ps1;/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/SEResourcesInstaller.ps1
 "@
