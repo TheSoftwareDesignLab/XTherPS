@@ -116,11 +116,32 @@ $downloaderWorker = { param([String]$driverOutput, [String]$componentName, [Stri
       $packageName = "$driverOutput$packAlias" + "_pack.zip"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
       Start-Sleep -m 800
+
+      function DownloadChromePlatform() {
+        
+      
+        if ($platform -eq "WIN") {
+          $systemChr = "chromedriver-win32" 
+        }
+        else {
+          if ($platform -eq "MAC") {
+            $systemChr = "chromedriver-mac-x64" 
+          }
+          else { 
+            if ($platform -eq "LNX") {
+              $systemChr = "chromedriver-linux64" 
+            }
+          }
+        }
+        return $systemChr
+      }
       function DownloadChrome() {
         $textToFind = "edgedl.me.gvt1.com" 
 		
         if ($resourceUrl -match $textToFind -and $componentName -eq "CHR") {
-          DownloadChromePlatform
+          . $platformFilePath
+          $platform = GetOsName 
+          $systemChr = DownloadChromePlatform 
           Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
           Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
           Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
@@ -132,25 +153,6 @@ $downloaderWorker = { param([String]$driverOutput, [String]$componentName, [Stri
         }           	
       } 
       DownloadChrome 
-    }
-    
-    function DownloadChromePlatform() {
-      . $platformFilePath
-      $platform = GetOsName 
-		
-      if ($platform -eq "WIN") {
-        $systemChr = "chromedriver-win32" 
-      }
-      else {
-        if ($platform -eq "MAC") {
-          $systemChr = "chromedriver-mac-x64" 
-        }
-        else { 
-          if ($platform -eq "LNX") {
-            $systemChr = "chromedriver-linux64" 
-          }
-        }
-      }
     }
     Start-Sleep -m 500
     Write-Output " the package [$packageName] of the resource  [$resourceUrl]`n is downloaded and expanded to [$driverOutput]"
