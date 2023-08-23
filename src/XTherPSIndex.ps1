@@ -37,7 +37,6 @@ $idxFileUri   = 2
 
 
 $XTherIndex = @"
-DALChrome.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALChrome.ps1
 DALEdge.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALEdge.ps1
 DALFireFox.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALFireFox.ps1
 DALStandAlone.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALStandAlone.ps1
