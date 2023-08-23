@@ -41,6 +41,6 @@ DALEdge.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS
 DALFireFox.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALFireFox.ps1
 DALStandAlone.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/dal/DALStandAlone.ps1
 DALUriDB.ps1;/dal/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/f-10811/src/dal/DALUriDB.ps1
-SEResourcesDB.ps1;/;https://raw.githubusercontent.com/TheSoftwareDesignLab/XTherPS/master/src/SEResourcesDB.ps1
+
 "@
 
