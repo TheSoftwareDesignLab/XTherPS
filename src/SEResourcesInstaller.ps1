@@ -34,204 +34,197 @@
 # @DilanStevenMejiaBuitrago
 #
 
-param([String]$myResources='STD',
-	  [String]$myDriverOutput='C:/GreenSQA/AiMaps/Selenium/'
-	 )
+param([String]$myResources = 'STD',
+  [String]$myDriverOutput = 'C:/GreenSQA/AiMaps/Selenium/'
+)
 
 #
 # Worker block for downloading the resources (Stand alone or webdrivers)
 #
 $downloaderWorker = { param([String]$driverOutput, [String]$componentName, [String]$xTherLocation)
 
-Write-Output "`nDownload Worker for [$componentName] Initialized\r"
+  Write-Output "`nDownload Worker for [$componentName] Initialized\r"
 
-# library
-. $xTherLocation/SEResourcesDB.ps1
-$platformFilePath = "$xTherLocation/SEResourcesDB.ps1"
+  # library
+  . $xTherLocation/SEResourcesDB.ps1
+  $platformFilePath = "$xTherLocation/SEResourcesDB.ps1"
 
-	#
-	# Checks if a url begins with the "http" string
-	#
-	function IsValidURL([string]$resourceURL) 
-	{	
-		if ($resourceURL.Contains("http"))
-		{
-			return $true
-		}
-		else 
-		{
-			Write-Output "The URL is not valid [$resourceURL]"
-			return  $false
-		}
-	}
+  #
+  # Checks if a url begins with the "http" string
+  #
+  function IsValidURL([string]$resourceURL) {	
+    if ($resourceURL.Contains("http")) {
+      return $true
+    }
+    else {
+      Write-Output "The URL is not valid [$resourceURL]"
+      return  $false
+    }
+  }
 
-	#
-	# Gets the compatible URL for the specified resource
-	#
-	function GetCompatibleResourceDownloadURL ([string]$resName)
-	{
-		[string]$extractedURL = "NONE";
+  #
+  # Gets the compatible URL for the specified resource
+  #
+  function GetCompatibleResourceDownloadURL ([string]$resName) {
+    [string]$extractedURL = "NONE";
 
-		try {
-			$result = GetResourceDownloadURL $resName
+    try {
+      $result = GetResourceDownloadURL $resName
 			
-			#Extracts the url which is in the format [["the url"]]
-			$extractedURL = ([regex]"(\[\[.+])").Match($result).Captures[0].value
-			$extractedURL = $extractedURL.Replace("[", "").Replace("]", "")		
-		}
-		catch {
-			Write-Output "There were errors getting compatible URL for the resource [$resName]"
-			Write-Output $_.Exception.Message
-			Write-Output $_.Exception.ItemName
-		}
+      #Extracts the url which is in the format [["the url"]]
+      $extractedURL = ([regex]"(\[\[.+])").Match($result).Captures[0].value
+      $extractedURL = $extractedURL.Replace("[", "").Replace("]", "")		
+    }
+    catch {
+      Write-Output "There were errors getting compatible URL for the resource [$resName]"
+      Write-Output $_.Exception.Message
+      Write-Output $_.Exception.ItemName
+    }
 
-		return $extractedURL
-	}
+    return $extractedURL
+  }
 
-    	#
-	# Downloads a file
-	#
-	function DownloadPackageRaw ([String]$resourceUrl, [string]$packName) 
-	{
-		#Get the resource name
-		$lastSegment = $resourceUrl.Split("/").Length - 1
-		$resourceName = $resourceUrl.Split("/")[$lastSegment]
+  #
+  # Downloads a file
+  #
+  function DownloadPackageRaw ([String]$resourceUrl, [string]$packName) {
+    #Get the resource name
+    $lastSegment = $resourceUrl.Split("/").Length - 1
+    $resourceName = $resourceUrl.Split("/")[$lastSegment]
 
-		#download the resource
+    #download the resource
 		(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$driverOutput/$resourceName")
 
-		#Writes the results to the console
-		Write-Output " the package [$packName] of the resource [$resourceName]`n is downloaded to [$driverOutput/$packName]"		
-	}
+    #Writes the results to the console
+    Write-Output " the package [$packName] of the resource [$resourceName]`n is downloaded to [$driverOutput/$packName]"		
+  }
 
-    	#
-	# Download and unzip a resource, finally removes the zip file downloaded
-	#
-	function DownloadAndUnzip ([string]$resourceUrl, [string]$packAlias) 
-	{
-		$packageName = ""
-		[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+  #
+  # Download and unzip a resource, finally removes the zip file downloaded
+  #
+  function DownloadAndUnzip ([string]$resourceUrl, [string]$packAlias) {
+    $packageName = ""
+    [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
 		
-		if ($resourceUrl.Contains(".tar")) {
-			$packageName = "$driverOutput/$packAlias" + "_pack.tar.gz"
+    if ($resourceUrl.Contains(".tar")) {
+      $packageName = "$driverOutput/$packAlias" + "_pack.tar.gz"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
-			Start-Sleep -m 800
-			Invoke-Expression "tar xf '$packageName' -C '$driverOutput/'"   
-		}else {
-			$packageName = "$driverOutput$packAlias" + "_pack.zip"
+      Start-Sleep -m 800
+      Invoke-Expression "tar xf '$packageName' -C '$driverOutput/'"   
+    }
+    else {
+      $packageName = "$driverOutput$packAlias" + "_pack.zip"
 			(New-Object System.Net.WebClient).DownloadFile("$resourceUrl", "$packageName")
-			Start-Sleep -m 800
-		      function DownloadChrome() 
-		      {
-		        $textToFind = "edgedl.me.gvt1.com" 
+      Start-Sleep -m 800
+      function DownloadChrome() {
+        $textToFind = "edgedl.me.gvt1.com" 
 		
-		        if ($resourceUrl -match $textToFind -and $componentName -eq "CHR") {
-		            Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
-		              
-		            . $platformFilePath
-		              $platform = GetOsName 
+        if ($resourceUrl -match $textToFind -and $componentName -eq "CHR") {
+          DownloadChromePlatform
+          Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
+          Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
+          Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
+          Write-Host "Download ChromeDriver version > = 115"
+        }
+        else {
+          Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force 
+          Write-Host "ChromeDriver version < 115"
+        }           	
+      } 
+      DownloadChrome 
+    }
+    
+    function DownloadChromePlatform() {
+      . $platformFilePath
+      $platform = GetOsName 
 		
-		            if ($platform -eq "WIN"){
-		                $systemChr = "chromedriver-win32" 
-		            } else{
-		              if ($platform -eq "MAC"){
-		                  $systemChr = "chromedriver-mac-x64" 
-		              } else{ 
-		                if ($platform -eq "LNX"){
-		                    $systemChr = "chromedriver-linux64" 
-		                }
-		              }
-		            }
-		          
-		            Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
-		            Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
-		            Write-Host "Download ChromeDriver version > = 115"
-		          } else {
-		            Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force 
-		            Write-Host "ChromeDriver version < 115"
-		          }           	
-		      } 
-		      DownloadChrome 
-		}
-		
-		Start-Sleep -m 500
-		Write-Output " the package [$packageName] of the resource  [$resourceUrl]`n is downloaded and expanded to [$driverOutput]"
-		Remove-Item $packageName
-	}
+      if ($platform -eq "WIN") {
+        $systemChr = "chromedriver-win32" 
+      }
+      else {
+        if ($platform -eq "MAC") {
+          $systemChr = "chromedriver-mac-x64" 
+        }
+        else { 
+          if ($platform -eq "LNX") {
+            $systemChr = "chromedriver-linux64" 
+          }
+        }
+      }
+    }
+    Start-Sleep -m 500
+    Write-Output " the package [$packageName] of the resource  [$resourceUrl]`n is downloaded and expanded to [$driverOutput]"
+    Remove-Item $packageName
+  }
 
-	# Evaluate the resource type to install
-	if ($componentName -eq "STD") {
-		[string]$myStandAloneURL = GetCompatibleResourceDownloadURL("STD")
-		$validationResult = IsValidURL($myStandAloneURL)
+  # Evaluate the resource type to install
+  if ($componentName -eq "STD") {
+    [string]$myStandAloneURL = GetCompatibleResourceDownloadURL("STD")
+    $validationResult = IsValidURL($myStandAloneURL)
 
-		if ($validationResult -eq $true){
-			DownloadPackageRaw $myStandAloneURL $componentName
-		}
-    	}
-	if ($componentName -eq "CHR") {
-		$myChromeDriverURL = GetCompatibleResourceDownloadURL("CHR")
-		$validationResult = IsValidURL($myChromeDriverURL)
+    if ($validationResult -eq $true) {
+      DownloadPackageRaw $myStandAloneURL $componentName
+    }
+  }
+  if ($componentName -eq "CHR") {
+    $myChromeDriverURL = GetCompatibleResourceDownloadURL("CHR")
+    $validationResult = IsValidURL($myChromeDriverURL)
 
-		if ($validationResult -eq $true){
-			DownloadAndUnzip $myChromeDriverURL $componentName
-		}
-	}
-	if ($componentName -eq "FIR") {
-		$myGeckoDriverURL = GetCompatibleResourceDownloadURL("FIR")
-		$validationResult = IsValidURL($myGeckoDriverURL)
+    if ($validationResult -eq $true) {
+      DownloadAndUnzip $myChromeDriverURL $componentName
+    }
+  }
+  if ($componentName -eq "FIR") {
+    $myGeckoDriverURL = GetCompatibleResourceDownloadURL("FIR")
+    $validationResult = IsValidURL($myGeckoDriverURL)
 
-		if ($validationResult  -eq $true) {
-			DownloadAndUnzip $myGeckoDriverURL $componentName
-		}
-	}
-	if ($componentName -eq "EDG") {
-		$myEdgeDriverURL = GetCompatibleResourceDownloadURL ("EDG")
-		$validationResult = IsValidURL($myEdgeDriverURL)
+    if ($validationResult -eq $true) {
+      DownloadAndUnzip $myGeckoDriverURL $componentName
+    }
+  }
+  if ($componentName -eq "EDG") {
+    $myEdgeDriverURL = GetCompatibleResourceDownloadURL ("EDG")
+    $validationResult = IsValidURL($myEdgeDriverURL)
 	
-		if ($validationResult -eq  $true) {
-			DownloadPackageRaw $myEdgeDriverURL $componentName
-		}
-	}
+    if ($validationResult -eq $true) {
+      DownloadPackageRaw $myEdgeDriverURL $componentName
+    }
+  }
 
-	Write-Output "Download Worker for [$componentName] Finished"
+  Write-Output "Download Worker for [$componentName] Finished"
 }
 
 #
 # Install the selenium webdrivers and the selenium stand alone
 #
-function installSeleniumSupportResources
-{
-	Write-Output "Installing the selenium support resources [$myResources] in [$myDriverOutput]"
-	$xtherLocation = $pwd
+function installSeleniumSupportResources {
+  Write-Output "Installing the selenium support resources [$myResources] in [$myDriverOutput]"
+  $xtherLocation = $pwd
 
-	if(!(Test-Path -Path $myDriverOutput)) {		
-		[System.IO.Directory]::CreateDirectory("$myDriverOutput")
-		Write-Output "The output directory has been created at [$myDriverOutput]"
-	}
+  if (!(Test-Path -Path $myDriverOutput)) {		
+    [System.IO.Directory]::CreateDirectory("$myDriverOutput")
+    Write-Output "The output directory has been created at [$myDriverOutput]"
+  }
 
-	if ($myResources.Contains("STD"))
-	{
-		Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput,"STD",$xtherLocation
-	}
+  if ($myResources.Contains("STD")) {
+    Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput, "STD", $xtherLocation
+  }
 
-	if ($myResources.Contains("CHR"))
-	{
-		Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput,"CHR",$xtherLocation	
-	}
+  if ($myResources.Contains("CHR")) {
+    Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput, "CHR", $xtherLocation	
+  }
 
-	if ($myResources.Contains("FIR"))
-	{
-		Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput,"FIR",$xtherLocation		
-	}
+  if ($myResources.Contains("FIR")) {
+    Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput, "FIR", $xtherLocation		
+  }
 
-	if ($myResources.Contains("EDG"))
-	{
-		Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput,"EDG",$xtherLocation		
-	}
+  if ($myResources.Contains("EDG")) {
+    Start-Job -ScriptBlock $downloaderWorker -ArgumentList $myDriverOutput, "EDG", $xtherLocation		
+  }
 
-	# Wait for the downloaderWorkers to finish
+  # Wait for the downloaderWorkers to finish
 	
-	Get-Job | Wait-Job | Receive-Job
+  Get-Job | Wait-Job | Receive-Job
 }
 
 # Main Entrypoint

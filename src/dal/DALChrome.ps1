@@ -155,7 +155,6 @@ function GetChromeVersionCrossPlatform()
 # the webdriver version is between the low and high browser version
 # then returns the chromedriver download url
 #
-
 function GetChromeDownloadURLIfCompatible($chromeDataRow, $fullVersion)
 {
 	$rowFields = $chromeDataRow.Split(";") 
