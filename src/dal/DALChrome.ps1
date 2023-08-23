@@ -169,16 +169,5 @@ function GetChromeDownloadURLIfCompatible($chromeDataRow, $fullVersion)
 		$foundURL = $rowFields[$idxDrivrURL]
 	}
 
-	return $foundURL, $hig
+	return $foundURL
 }
-
-$foundURL, $hig = GetChromeDownloadURLIfCompatible $chromeDataRow $fullVersion
-
-# Llamar a la función SomeOtherFunction y pasar el valor de $hig
-function SomeOtherFunction($higValue)
-{
-    # Tu lógica aquí que utiliza $higValue
-    Write-Output "El valor de hig en SomeOtherFunction es: $higValue"
-}
-
-SomeOtherFunction $hig

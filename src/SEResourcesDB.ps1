@@ -177,14 +177,3 @@ function GetResourceDownloadURL([string]$resourceName, [bool]$maskResponse = $Tr
 	
 	return [string]$queriedURL
 }
-
-$foundURL, $hig = GetChromeDownloadURLIfCompatible $chromeDataRow $fullVersion
-
-# Llamar a la función SomeOtherFunction y pasar el valor de $hig
-function SomeOtherFunction($higValue)
-{
-    # Tu lógica aquí que utiliza $higValue
-    Write-Output "El valor de hig en SomeOtherFunction es: $higValue"
-}
-
-SomeOtherFunction $hig
