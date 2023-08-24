@@ -119,23 +119,26 @@ $downloaderWorker = { param([String]$driverOutput, [String]$componentName, [Stri
       function DownloadChromePlatform() {
         if ($platform -eq "WIN") {
           $systemChr = "chromedriver-win32" 
+          $chromeDrv = "chromedriver.exe"
         } elseif ($platform -eq "MAC") {
           $systemChr = "chromedriver-mac-x64" 
+          $chromeDrv = "chromedriver"
         } else { 
           $systemChr = "chromedriver-linux64" 
+          $chromeDrv = "chromedriver"
         }
-        return $systemChr
+        return $systemChr, $chromeDrv
       }
 
       function DownloadChrome() {
-        $textToFind = "edgedl.me.gvt1.com" 
+        $newChrDriverRepoUrl= "edgedl.me.gvt1.com" 
 		
-        if ($resourceUrl -match $textToFind -and $componentName -eq "CHR") {
+        if ($resourceUrl -match $newChrDriverRepoUrl -and $componentName -eq "CHR") {
           . $platformFilePath
           $platform = GetOsName 
-          $systemChr = DownloadChromePlatform 
+          $systemChr, $chromeDrv = DownloadChromePlatform 
           Expand-Archive -Path "$packageName" -DestinationPath "$driverOutput" -Force
-          Copy-Item "$driverOutput\$systemChr\chromedriver.exe"  $driverOutput 
+          Copy-Item "$driverOutput\$systemChr\$chromeDrv"  $driverOutput 
           Remove-Item "$driverOutput\$systemChr\" -Force -Recurse
           Write-Host "Download ChromeDriver version > = 115"
         }
