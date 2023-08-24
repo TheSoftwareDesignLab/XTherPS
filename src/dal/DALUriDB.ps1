@@ -150,7 +150,7 @@ CHR;LNX;64;ZIP;115-115;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testi
 CHR;LNX;64;ZIP;114-114;https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;113-113;https://chromedriver.storage.googleapis.com/113.0.5672.24/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;112-112;https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip
-CHR;LNX;64;ZIP;111-999;https://chromedriver.storage.googleapis.com/111.0.5563.41/chromedriver_linux64.zip
+CHR;LNX;64;ZIP;111-111;https://chromedriver.storage.googleapis.com/111.0.5563.41/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;110-110;https://chromedriver.storage.googleapis.com/110.0.5481.30/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;109-109;https://chromedriver.storage.googleapis.com/109.0.5414.74/chromedriver_linux64.zip
 CHR;LNX;64;ZIP;108-999;https://chromedriver.storage.googleapis.com/108.0.5359.71/chromedriver_linux64.zip
