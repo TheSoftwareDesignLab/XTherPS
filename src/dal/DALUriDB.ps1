@@ -95,9 +95,9 @@ CHR;WIN;86;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;WIN;86;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_win32.zip
 CHR;WIN;86;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip
 //Chrome mac
-CHR;WIN;86;ZIP;116-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/mac-x64/chromedriver-mac-x64.zip
-CHR;WIN;86;ZIP;115-115;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/115.0.5790.170/mac-x64/chromedriver-mac-x64.zip
-CHR;WIN;86;ZIP;114-114;https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_mac64.zip
+CHR;MAC;64;ZIP;116-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/mac-x64/chromedriver-mac-x64.zip
+CHR;MAC;64;ZIP;115-115;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/115.0.5790.170/mac-x64/chromedriver-mac-x64.zip
+CHR;MAC;64;ZIP;114-114;https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;113-113;https://chromedriver.storage.googleapis.com/113.0.5672.24/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;112-112;https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;111-999;https://chromedriver.storage.googleapis.com/111.0.5563.41/chromedriver_mac64.zip
