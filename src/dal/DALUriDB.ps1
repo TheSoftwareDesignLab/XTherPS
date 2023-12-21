@@ -45,7 +45,9 @@ STD;ALL;--;JAR;1.7-LST;https://selenium-release.storage.googleapis.com/3.141/sel
 //
 //
 //Chrome windows 32
-CHR;WIN;86;ZIP;119-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/win32/chromedriver-win32.zip
+120.0.6099.109
+CHR;WIN;86;ZIP;120-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/win32/chromedriver-win32.zip
+CHR;WIN;86;ZIP;119-119;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/win32/chromedriver-win32.zip
 CHR;WIN;86;ZIP;118-118;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/win32/chromedriver-win32.zip
 CHR;WIN;86;ZIP;117-117;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.88/win32/chromedriver-win32.zip
 CHR;WIN;86;ZIP;116-116;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/win32/chromedriver-win32.zip
@@ -98,7 +100,8 @@ CHR;WIN;86;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;WIN;86;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_win32.zip
 CHR;WIN;86;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip
 //Chrome mac
-CHR;MAC;64;ZIP;119-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/mac-x64/chromedriver-mac-x64.zip
+CHR;MAC;64;ZIP;120-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-x64/chromedriver-mac-x64.zip
+CHR;MAC;64;ZIP;119-119;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/mac-x64/chromedriver-mac-x64.zip
 CHR;MAC;64;ZIP;118-118;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/mac-x64/chromedriver-mac-x64.zip
 CHR;MAC;64;ZIP;117-117;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.88/mac-x64/chromedriver-mac-x64.zip
 CHR;MAC;64;ZIP;116-116;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/mac-x64/chromedriver-mac-x64.zip
@@ -151,7 +154,8 @@ CHR;MAC;64;ZIP;068-070;https://chromedriver.storage.googleapis.com/2.42/chromedr
 CHR;MAC;64;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedriver_mac64.zip
 CHR;MAC;64;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_mac64.zip
 //Chrome linux 64
-CHR;LNX;64;ZIP;119-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/linux64/chromedriver-linux64.zip
+CHR;LNX;64;ZIP;120-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
+CHR;LNX;64;ZIP;119-119;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/linux64/chromedriver-linux64.zip
 CHR;LNX;64;ZIP;118-118;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/linux64/chromedriver-linux64.zip
 CHR;LNX;64;ZIP;117-117;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/117.0.5938.88/linux64/chromedriver-linux64.zip
 CHR;LNX;64;ZIP;116-116;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/116.0.5845.96/linux64/chromedriver-linux64.zip
