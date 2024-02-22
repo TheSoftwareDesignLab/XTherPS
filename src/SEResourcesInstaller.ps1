@@ -133,7 +133,12 @@ $downloaderWorker = { param([String]$driverOutput, [String]$componentName, [Stri
       function DownloadChrome() {
         #$newChrDriverRepoUrl= "edgedl.me.gvt1.com"
 	#$newChrDriverRepoUrl= "edgedl.me.gvt1.com"
-	$isNewChrDriverRepoUrl = if ($resourceUrl -match "edgedl.me.gvt1.com" -or $resourceUrl -match "storage.googleapis.com")
+	$isNewChrDriverRepoUrl = if ($resourceUrl -match "edgedl.me.gvt1.com" -or $resourceUrl -match "storage.googleapis.com") {
+ 	  $true
+	} 
+ 	else {
+     	  $false
+	}
 		
         #if ($resourceUrl -match $newChrDriverRepoUrl -and $componentName -eq "CHR") {
 	if ($isNewChrDriverRepoUrl -and $componentName -eq "CHR") {
