@@ -45,7 +45,8 @@ STD;ALL;--;JAR;1.7-LST;https://selenium-release.storage.googleapis.com/3.141/sel
 //
 //
 //Chrome windows 32
-CHR;WIN;86;ZIP;121-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/win32/chromedriver-win32.zip
+CHR;WIN;86;ZIP;122-999;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/122.0.6261.57/win32/chromedriver-win32.zip
+CHR;WIN;86;ZIP;121-121;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/win32/chromedriver-win32.zip
 CHR;WIN;86;ZIP;120-120;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/win32/chromedriver-win32.zip
 CHR;WIN;86;ZIP;119-119;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.105/win32/chromedriver-win32.zip
 CHR;WIN;86;ZIP;118-118;https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/118.0.5993.70/win32/chromedriver-win32.zip
