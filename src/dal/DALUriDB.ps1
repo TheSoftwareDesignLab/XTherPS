@@ -44,8 +44,9 @@ $drvrDB = @"
 STD;ALL;--;JAR;1.7-LST;https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
 //
 //
-//Chrome windows 32
-CHR;WIN;86;ZIP;147-999;https://storage.googleapis.com/chrome-for-testing-public/147.0.7727.56/win32/chromedriver-win32.zip
+//Chrome windows 32 
+CHR;WIN;86;ZIP;148-999;https://storage.googleapis.com/chrome-for-testing-public/148.0.7778.56/win32/chromedriver-win32.zip
+CHR;WIN;86;ZIP;147-147;https://storage.googleapis.com/chrome-for-testing-public/147.0.7727.56/win32/chromedriver-win32.zip
 CHR;WIN;86;ZIP;146-146;https://storage.googleapis.com/chrome-for-testing-public/146.0.7680.178/win32/chromedriver-win32.zip
 CHR;WIN;86;ZIP;145-145;https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.67/win32/chromedriver-win32.zip
 CHR;WIN;86;ZIP;143-144;https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.192/win32/chromedriver-win32.zip
@@ -125,7 +126,8 @@ CHR;WIN;86;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedr
 CHR;WIN;86;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_win32.zip
 //Chrome mac 
 
-CHR;MAC;86;ZIP;147-999;https://storage.googleapis.com/chrome-for-testing-public/147.0.7727.56/mac-x64/chromedriver-mac-x64.zip
+CHR;MAC;86;ZIP;148-999;https://storage.googleapis.com/chrome-for-testing-public/148.0.7778.56/mac-x64/chromedriver-mac-x64.zip
+CHR;MAC;86;ZIP;147-147;https://storage.googleapis.com/chrome-for-testing-public/147.0.7727.56/mac-x64/chromedriver-mac-x64.zip
 CHR;MAC;86;ZIP;146-146;https://storage.googleapis.com/chrome-for-testing-public/146.0.7680.178/mac-x64/chromedriver-mac-x64.zip
 CHR;MAC;86;ZIP;145-145;https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.67/mac-x64/chromedriver-mac-x64.zip
 CHR;MAC;86;ZIP;143-144;https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.192/mac-x64/chromedriver-mac-x64.zip
@@ -205,7 +207,8 @@ CHR;MAC;64;ZIP;067-069;https://chromedriver.storage.googleapis.com/2.41/chromedr
 CHR;MAC;64;ZIP;066-068;https://chromedriver.storage.googleapis.com/2.40/chromedriver_mac64.zip
 //Chrome linux 64
 
-CHR;LNX;86;ZIP;147-999;https://storage.googleapis.com/chrome-for-testing-public/147.0.7727.56/linux64/chromedriver-linux64.zip
+CHR;LNX;86;ZIP;148-999;https://storage.googleapis.com/chrome-for-testing-public/148.0.7778.56/linux64/chromedriver-linux64.zip
+CHR;LNX;86;ZIP;147-147;https://storage.googleapis.com/chrome-for-testing-public/147.0.7727.56/linux64/chromedriver-linux64.zip
 CHR;LNX;86;ZIP;146-146;https://storage.googleapis.com/chrome-for-testing-public/146.0.7680.178/linux64/chromedriver-linux64.zip
 CHR;LNX;86;ZIP;145-145;https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.67/linux64/chromedriver-linux64.zip
 CHR;LNX;86;ZIP;143-144;https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.192/linux64/chromedriver-linux64.zip
